@@ -1,0 +1,60 @@
+.header {
+  margin: auto;
+  padding: 1rem 5rem;
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.nav {
+  width: 100vw;
+}
+.nav-link {
+  padding: 0.5rem 0.8rem; 
+  font-size: 1.2rem;
+}
+
+.nav-link__button {
+  background-color: rgb(18, 110, 38);
+  padding: 0.5rem 0.8rem; 
+   font-size: 1.2rem;
+   border-radius: 1.5rem;
+}
+
+.nav-link__button:hover {
+  background-color: aliceblue;
+}
+
+.auth {
+  display: flex;
+  margin: 0 5rem;
+}
+
+.auth li {
+  display: flex;
+  margin: 0 3rem;
+}
+
+.list a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.list a:hover {
+  color: green;
+}
+
+.logo {
+  width: 4.5rem;
+  margin: 1rem 3rem;
+  padding: 0.5rem 0.5rem;
+  background-color: rgb(237, 237, 237);
+  border-radius: 100%;
+}

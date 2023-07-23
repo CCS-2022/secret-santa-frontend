@@ -1,0 +1,298 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;
+  z-index: -100;
+  width: 100%;
+}
+
+.main-intro {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.main-instructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-message__one {
+  color: aliceblue;
+  padding: 1rem 0;
+  margin-top: 10rem;
+  font-size: 1.5rem;
+}
+
+.main-message__two {
+  color: aliceblue;
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+.main-button {
+  background-color: rgb(63, 174, 98);
+  color: aliceblue;
+  border: none;
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.main-button:hover,
+.main-button:active {
+  background-color: aliceblue;
+  color: rgb(63, 174, 98);
+  cursor: pointer;
+}
+
+.snowflake-one {
+  position: absolute;
+  width: 5%;
+  top: 0;
+  left: 1rem;
+  opacity: 0;
+  animation: snowflake 15s 0.2s ease-out 20 normal;
+}
+
+.snowflake-two {
+  position: absolute;
+  width: 4%;
+  top: 5rem;
+  left: 3rem;
+  opacity: 0;
+  animation: snowflake-deep 18s 1s ease-out 20 normal;
+}
+
+.snowflake-three {
+  position: absolute;
+  width: 3%;
+  top: 0;
+  left: 5rem;
+  opacity: 0;
+  animation: snowflake 15s 0.2s ease-out 20 normal;
+}
+
+.snowflake-four {
+  position: absolute;
+  width: 4%;
+  top: 5rem;
+  left: 7rem;
+  opacity: 0;
+  animation: snowflake 10s 1s ease-out 20 normal;
+}
+.snowflake-five {
+  position: absolute;
+  width: 5%;
+  top: 0;
+  left: 9rem;
+  opacity: 0;
+  animation: snowflake-deep 15s 2s ease-out 20 normal;
+}
+
+.snowflake-six {
+  position: absolute;
+  width: 5%;
+  top: 5rem;
+  right: 11rem;
+  opacity: 0;
+  animation: snowflake 18s 1s ease-out 20 normal;
+}
+.snowflake-seven {
+  position: absolute;
+  width: 3%;
+  top: 0;
+  right: 9rem;
+  opacity: 0;
+  animation: snowflake-deep 15s 2s ease-out 20 normal;
+}
+
+.snowflake-eight {
+  position: absolute;
+  width: 4%;
+  top: 5rem;
+  right: 5rem;
+  opacity: 0;
+  animation: snowflake 20s 2s ease-out 20 normal;
+}
+
+.snowflake-nine {
+  position: absolute;
+  width: 2%;
+  top: 9rem;
+  right: 1rem;
+  opacity: 0;
+  animation: snowflake 12s 1s ease-out 20 normal;
+}
+
+.tree-one {
+  position: absolute;
+  width: 10%;
+  bottom: 0;
+  left: 1.5rem;
+}
+.tree-two {
+  position: absolute;
+  width: 8%;
+  bottom: 0;
+  left: 0;
+}
+
+.tree-three {
+  position: absolute;
+  width: 10%;
+  bottom: 0;
+  right: 1.5rem;
+}
+
+.tree-four {
+  position: absolute;
+  width: 8%;
+  bottom: 0;
+  right: 0;
+}
+
+.tree-five {
+  position: absolute;
+  width: 6%;
+  bottom: 0;
+  left: 3.58rem;
+}
+
+.tree-six {
+  position: absolute;
+  width: 6%;
+  bottom: 0rem;
+  right: 3.5rem;
+}
+/* =========================================MEDIA QUERY============================================ */
+@media (min-width: 57rem) {
+  .main {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    flex-direction: row;
+    align-items: center;
+
+  }
+
+  .main-intro {
+    border-right: 2px solid aliceblue;
+    width: 30%;
+    padding-right: 1rem;
+    margin-right: 3rem;
+  }
+
+  .main-message__one {
+    font-size: 3rem;
+    margin-top: 0rem;
+  }
+
+  .main-button {
+    background-color: rgb(63, 174, 98);
+    color: aliceblue;
+    border: none;
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .snowflake-one {
+    left: 3rem;
+  }
+
+  .snowflake-two {
+    left: 15rem;
+  }
+
+  .snowflake-three {
+    left: 24rem;
+  }
+
+  .snowflake-four {
+    left: 33rem;
+  }
+  .snowflake-five {
+    left: 41.5rem;
+  }
+
+  .snowflake-six {
+    right: 33rem;
+  }
+  .snowflake-seven {
+    right: 3rem;
+  }
+  .snowflake-eight {
+    right: 15rem;
+  }
+  .snowflake-nine {
+    right: 24rem;
+  }
+
+  .tree-one {
+    bottom: 7rem;
+    left: 5rem;
+  }
+  .tree-two {
+    bottom: 7rem;
+    left: 0;
+  }
+
+  .tree-three {
+    bottom: 7rem;
+    right: 5rem;
+  }
+
+  .tree-four {
+    bottom: 7rem;
+    right: 0;
+  }
+
+  .tree-five {
+    bottom: 7rem;
+    left: 13rem;
+  }
+
+  .tree-six {
+    bottom: 7rem;
+    right: 13rem;
+  }
+}
+
+@keyframes snowflake {
+  0% {
+    opacity: 0;
+    transform: rotateZ(90deg);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 18rem;
+    transform: rotateZ(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes snowflake-deep {
+  0% {
+    opacity: 0;
+    transform: rotateZ(90deg);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 28rem;
+    transform: rotateZ(360deg);
+    opacity: 0;
+  }
+}

@@ -4,6 +4,7 @@ import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
 import ErrorPage from "./pages/Error";
 import GroupsPage from "./pages/Groups";
+import { checkAuthLoader } from "./util/auth";
 
 const router = createBrowserRouter([
   {
@@ -12,8 +13,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       { index: true, element: <HomePage></HomePage> },
-      { path: "login", element: <LoginPage></LoginPage> },
-      { path: "groups", element: <GroupsPage></GroupsPage> },
+      {
+        path: "login",
+        element: <LoginPage></LoginPage>,
+        loader: checkAuthLoader,
+      },
     ],
   },
 ]);

@@ -1,6 +1,7 @@
 import classes from "./MainNavigation.module.css";
 import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
+
 export default function MainNavigation() {
   return (
     <header className={classes.header}>
@@ -19,13 +20,8 @@ export default function MainNavigation() {
           </li>
           <div className={classes.auth}>
             <li>
-              <NavLink to="groups" className={classes["nav-link"]}>
-                My Groups
-              </NavLink>
-            </li>
-            <li>
               <NavLink to="login?mode=login" className={classes["nav-link"]}>
-                Login
+                Sign in
               </NavLink>
             </li>
             <li>

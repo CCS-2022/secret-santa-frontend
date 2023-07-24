@@ -1,5 +1,5 @@
 import classes from "./AuthForm.module.css";
-import  { Fragment } from "react";
+import { Fragment } from "react";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Form, Link, useSearchParams } from "react-router-dom";
@@ -22,7 +22,6 @@ export default function AuthForm() {
               id="fname"
               name="fname"
               placeholder="First Name"
-              
             />
 
             <input
@@ -36,14 +35,14 @@ export default function AuthForm() {
         )}
 
         <input
-          className={`${classes["login-form__input"]} ${classes['user-details']}`}
+          className={`${classes["login-form__input"]} ${classes["user-details"]}`}
           type="email"
           id="email"
           name="email"
           placeholder="Email"
         />
         <input
-          className={`${classes["login-form__input"]} ${classes['user-details']}`}
+          className={`${classes["login-form__input"]} ${classes["user-details"]}`}
           type="password"
           id="password"
           name="password"
@@ -51,7 +50,7 @@ export default function AuthForm() {
         />
         {!isLogin && (
           <input
-          className={`${classes["login-form__input"]} ${classes['user-details']}`}
+            className={`${classes["login-form__input"]} ${classes["user-details"]}`}
             type="text"
             id="adress"
             name="address"

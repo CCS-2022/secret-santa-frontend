@@ -5,28 +5,55 @@ import snowflakeData from "../../util/snowflakeData";
 import treeData from "../../util/treeData";
 import InstructionPage from "./InstructionPage";
 import { Fragment } from "react";
+import keycloak from "../../util/keycloak";
 
 export default function MainPage() {
+  const handleLogout = () => {
+    keycloak.logout({ redirectUri: "http://localhost:5173/" });
+  };
+  const handleLogin = () => {
+    keycloak.login();
+  };
+
+  const authenticated = keycloak.authenticated;
+
   return (
     <Fragment>
-      <div className={styles.main}>
-        <div className={styles["main-intro"]}>
-          <h1 className={styles["main-message__one"]}>
-            Make gift giving with others memorable!
-          </h1>
-          <h3 className={styles["main-message__two"]}>
-            Get randomly matched to a friend, coworker, or family member and get
-            an email sent to you with your match.
-          </h3>
-        </div>
-        <div className={styles["main-instructions"]}>
-          <InstructionPage></InstructionPage>
-
-          <button className={styles["main-button"]} type="button">
-            Get Started
+      {authenticated ? (
+        <div>
+          <h1>Hello</h1>
+          <button
+            className={styles["main-button"]}
+            type="button"
+            onClick={handleLogout}
+          >
+            Log Out
           </button>
         </div>
-      </div>
+      ) : (
+        <div className={styles.main}>
+          <div className={styles["main-intro"]}>
+            <h1 className={styles["main-message__one"]}>
+              Make gift giving with others memorable!
+            </h1>
+            <h3 className={styles["main-message__two"]}>
+              Get randomly matched to a friend, coworker, or family member and
+              get an email sent to you with your match.
+            </h3>
+          </div>
+          <div className={styles["main-instructions"]}>
+            <InstructionPage></InstructionPage>
+
+            <button
+              className={styles["main-button"]}
+              type="button"
+              onClick={handleLogin}
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+      )}
       <div>
         {snowflakeData.map((items) => {
           return (

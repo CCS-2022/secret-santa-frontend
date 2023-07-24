@@ -29,6 +29,8 @@ export default function MainPage() {
           >
             Log Out
           </button>
+          {/* <h1>TOKEN: </h1>
+          <p>{keycloak.token}</p> */}
         </div>
       ) : (
         <div className={styles.main}>

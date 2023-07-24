@@ -20,16 +20,13 @@ export default function MainNavigation() {
           </li>
           <div className={classes.auth}>
             <li>
-              <NavLink to="login?mode=login" className={classes["nav-link"]}>
-                Sign in
+              <NavLink to="about" className={classes["nav-link"]}>
+                About
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="login?mode=signup"
-                className={classes["nav-link__button"]}
-              >
-                Sign up
+              <NavLink to="login" className={classes["nav-link__button"]}>
+                Sign in
               </NavLink>
             </li>
           </div>

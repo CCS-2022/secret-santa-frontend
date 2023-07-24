@@ -3,8 +3,8 @@ import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
 import ErrorPage from "./pages/Error";
-import GroupsPage from "./pages/Groups";
 import { checkAuthLoader } from "./util/auth";
+import AboutPage from "./pages/About";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +17,10 @@ const router = createBrowserRouter([
         path: "login",
         element: <LoginPage></LoginPage>,
         loader: checkAuthLoader,
+      },
+      {
+        path: "about",
+        element: <AboutPage></AboutPage>,
       },
     ],
   },

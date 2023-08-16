@@ -1,0 +1,29 @@
+.layout {
+  display: flex;
+  margin-left: 10rem;
+}
+
+.groups {
+  display: inline-block;
+  justify-content: center;
+  text-align: center;
+
+  background-color: rgba(230, 176, 175, 0.5);
+  padding: 2rem;
+  width: 20rem;
+  margin: 3rem 1rem;
+  border-radius: 1rem;
+}
+
+.characteristics {
+  display: inline-block;
+  justify-content: center;
+  text-align: center;
+
+  background-color: rgba(230, 176, 175, 0.5);
+  padding: 2rem;
+  width: 50rem;
+  height: 20rem;
+  margin: 3rem 1rem;
+  border-radius: 1rem;
+}

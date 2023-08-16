@@ -1,6 +1,10 @@
 import classes from "./MainNavigation.module.css";
 import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
+import NavLinksIntro from "./NavLinksIntro";
+import NavLinksMain from "./NavsLinksMain";
+import keycloak from "../../util/keycloak";
+// import { useDispatch } from "react-redux";
 
 export default function MainNavigation() {
   return (
@@ -18,18 +22,8 @@ export default function MainNavigation() {
               <img className={classes.logo} src={logo} alt="logo" />
             </NavLink>
           </li>
-          <div className={classes.auth}>
-            <li>
-              <NavLink to="about" className={classes["nav-link"]}>
-                About
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="login" className={classes["nav-link__button"]}>
-                Sign in
-              </NavLink>
-            </li>
-          </div>
+          {!keycloak.authenticated && <NavLinksIntro></NavLinksIntro>}
+          {keycloak.authenticated && <NavLinksMain></NavLinksMain>}
         </ul>
       </nav>
     </header>

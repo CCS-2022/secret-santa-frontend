@@ -2,8 +2,6 @@
   margin: auto;
   padding: 1rem 5rem;
   display: flex;
-  /* align-items: center; */
-  /* justify-content: space-between; */
 }
 
 .list {
@@ -17,29 +15,42 @@
   width: 100vw;
 }
 .nav-link {
-  padding: 0.5rem 0.8rem; 
+  padding: 0.5rem 0.8rem;
   font-size: 1.2rem;
 }
 
 .nav-link__button {
-  background-color: rgb(18, 110, 38);
-  padding: 0.5rem 0.8rem; 
-   font-size: 1.2rem;
-   border-radius: 1.5rem;
+  background-color: rgb(63, 174, 98);
+  padding: 0.5rem 0.8rem;
+  font-size: 1.2rem;
+  border-radius: 1.5rem;
+  border: none;
+  color: aliceblue;
 }
 
 .nav-link__button:hover {
   background-color: aliceblue;
+  color: rgb(63, 174, 98);
+  cursor: pointer;
 }
 
 .auth {
   display: flex;
-  margin: 0 5rem;
+
+  align-items: center;
+  margin: 0 3rem;
 }
 
-.auth li {
+.nav-links {
+  display: flex;
+}
+
+li {
   display: flex;
   margin: 0 3rem;
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 1.3rem;
 }
 
 .list a {
@@ -47,8 +58,14 @@
   color: aliceblue;
 }
 
+li:hover {
+  color: rgb(63, 174, 98);
+  cursor: pointer;
+}
+
 .list a:hover {
-  color: green;
+  color: rgb(63, 174, 98);
+  cursor: pointer;
 }
 
 .logo {

@@ -1,0 +1,29 @@
+.main-intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-message__one {
+  color: aliceblue;
+  font-size: 3rem;
+  margin-top: 0rem;
+}
+
+.main-message__two {
+  color: aliceblue;
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+@media (min-width: 57rem) {
+  .main-intro {
+    border-right: 2px solid aliceblue;
+    width: 50%;
+    padding-right: 1rem;
+    margin-right: 3rem;
+  }
+  .main-message__one {
+    font-size: 3rem;
+    margin-top: 0rem;
+  }
+}

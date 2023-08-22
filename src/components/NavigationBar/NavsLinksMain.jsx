@@ -1,12 +1,11 @@
 import classes from "./MainNavigation.module.css";
 import keycloak from "../../util/keycloak";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
 
-const PROFILE_ID = [
-  { id: "p1", title: "Profile 1" },
-  { id: "p2", title: "Profile 2" },
-  { id: "p3", title: "Profile 3" },
-];
+const PROFILE_ID = "profile1";
 
 const NavLinksMain = () => {
   const logoutHandler = () => {
@@ -17,9 +16,15 @@ const NavLinksMain = () => {
     <div className={classes.auth}>
       <ul className={classes["nav-links"]}>
         <li>
-          <Link to={`/${PROFILE_ID}`}>Profile</Link>
+          <NavLink to="about">About</NavLink>
+        </li>
+        <li>
+          <Link to={`/${PROFILE_ID}`}>Account</Link>
         </li>
         <li onClick={logoutHandler}>Logout</li>
+        <li>
+          <FontAwesomeIcon icon={faBell} className={classes["bell-icon"]} />
+        </li>
       </ul>
     </div>
   );

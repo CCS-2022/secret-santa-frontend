@@ -1,11 +1,13 @@
 .main-intro {
   display: flex;
   flex-direction: column;
+  text-align: center;
+  margin: 1rem 0;
 }
 
 .main-message__one {
-  color: aliceblue;
-  font-size: 3rem;
+  color: #f0f8ff;
+  font-size: 2rem;
   margin-top: 0rem;
 }
 

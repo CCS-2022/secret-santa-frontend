@@ -1,6 +1,6 @@
 .header {
   margin: auto;
-  padding: 1rem 5rem;
+  /* padding: 1rem 5rem; */
   display: flex;
 }
 
@@ -12,11 +12,9 @@
 }
 
 .nav {
+  display: flex;
+  justify-content: space-around;
   width: 100vw;
-}
-.nav-link {
-  padding: 0.5rem 0.8rem;
-  font-size: 1.2rem;
 }
 
 .nav-link__button {
@@ -33,21 +31,48 @@
   color: rgb(63, 174, 98);
   cursor: pointer;
 }
+.toggle-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 3.3rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding-top: 0;
+  padding-bottom: 0;
+  vertical-align: middle;
+}
+
+.toggle-button:focus {
+  outline: none;
+}
+
+.toggle-button__bar {
+  width: 100%;
+  height: 0.2rem;
+  background: aliceblue;
+  display: block;
+  margin: 0.5rem 0;
+  border-radius: 1rem;
+}
 
 .auth {
-  display: flex;
+  display: none;
 
   align-items: center;
   margin: 0 3rem;
 }
 
 .nav-links {
-  display: flex;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
 li {
   display: flex;
-  margin: 0 3rem;
+  margin: 0 0rem;
   text-decoration: none;
   color: aliceblue;
   font-size: 1.3rem;
@@ -70,8 +95,83 @@ li:hover {
 
 .logo {
   width: 4.5rem;
-  margin: 1rem 3rem;
+  margin: 1rem 0rem;
   padding: 0.5rem 0.5rem;
   background-color: rgb(237, 237, 237);
   border-radius: 100%;
+}
+
+.bell-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: auto;
+}
+
+@media (min-width: 57rem) {
+  .header {
+    margin: auto;
+    padding: 1rem 5rem;
+    display: flex;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .toggle-button {
+    display: none;
+    width: 3rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 0;
+    padding-bottom: 0;
+    vertical-align: middle;
+  }
+
+  li {
+    display: flex;
+    margin: 0 3rem;
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 1.3rem;
+  }
+
+  .auth {
+    display: flex;
+
+    align-items: center;
+    margin: 0 3rem;
+  }
+
+  .logo {
+    width: 4.5rem;
+    margin: 1rem 3rem;
+    padding: 0.5rem 0.5rem;
+    background-color: rgb(237, 237, 237);
+    border-radius: 100%;
+  }
+
+  .logo {
+    width: 4.5rem;
+    margin: 1rem 0rem 1rem 0rem;
+    padding: 0.5rem 0.5rem;
+    background-color: rgb(237, 237, 237);
+    border-radius: 100%;
+  }
 }

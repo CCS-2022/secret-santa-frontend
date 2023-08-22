@@ -11,9 +11,7 @@ const NavLinksIntro = () => {
   return (
     <div className={classes.auth}>
       <li>
-        <NavLink to="about" className={classes["nav-link"]}>
-          About
-        </NavLink>
+        <NavLink to="about">About</NavLink>
       </li>
       <li>
         <button onClick={loginHandler} className={classes["nav-link__button"]}>

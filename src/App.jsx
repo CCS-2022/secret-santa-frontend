@@ -3,7 +3,7 @@ import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
 // import LoginPage from "./pages/Login";
 import ErrorPage from "./pages/Error";
-// import { checkAuthLoader } from "./util/auth";
+import { checkAuthLoader } from "./util/auth";
 import AboutPage from "./pages/About";
 import ProfilePage from "./pages/ProfilePage";
 
@@ -15,12 +15,13 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage></HomePage> },
       {
-        path: "about",
+        path: "/about",
         element: <AboutPage></AboutPage>,
       },
       {
-        path: "/:profile",
+        path: "/:profileId",
         element: <ProfilePage></ProfilePage>,
+        loader: checkAuthLoader,
       },
     ],
   },

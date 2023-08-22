@@ -1,0 +1,51 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0rem 6rem;
+}
+
+.about-text {
+  text-align: center;
+}
+
+.about-text__header {
+  font-size: 3rem;
+  font-weight: bold;
+  /* color: rgb(141, 238, 172); */
+}
+
+/* .about-contact__header {
+  color: rgb(141, 238, 172);
+} */
+
+.about-contact {
+  text-align: center;
+  margin: 1rem;
+  width: 60rem;
+}
+
+.about-text__pg {
+  margin: 0.5rem 0;
+}
+
+.about-contact__pg {
+  margin: 0.5rem 0;
+}
+
+.about-contact__btn {
+  background-color: rgb(63, 174, 98);
+  border: none;
+  padding: 0.7rem;
+  margin: 1rem;
+  border-radius: 1.5rem;
+  color: aliceblue;
+  font-size: 1.5rem;
+}
+
+.about-contact__btn:hover {
+  cursor: pointer;
+  background-color: aliceblue;
+  color: rgb(63, 174, 98);
+}

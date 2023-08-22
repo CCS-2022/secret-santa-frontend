@@ -1,15 +1,7 @@
-import { Fragment } from "react";
-import { useParams } from "react-router";
+import Profile from "../components/Profile/Profile";
 
 const ProfilePage = () => {
-  const params = useParams();
-
-  return (
-    <Fragment>
-      <h1>Profile</h1>
-      <p>{params.profileId}</p>
-    </Fragment>
-  );
+  return <Profile></Profile>;
 };
 
 export default ProfilePage;

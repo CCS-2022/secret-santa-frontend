@@ -1,0 +1,41 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  /* background-color: black; */
+  margin: auto;
+  /* z-index: 100; */
+  height: 20rem;
+  /* background-color: rgb(10, 54, 93); */
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group > h1 {
+  margin-bottom: 1rem;
+}
+
+.form-group__input {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+  height: 2rem;
+  width: 20rem;
+  border-radius: 1rem;
+  margin: 0.5rem 0;
+  text-align: center;
+  color: aliceblue;
+}
+
+.form-group__button {
+  background-color: rgb(63, 174, 98);
+  border: none;
+  padding: 0.7rem;
+  margin: 1rem;
+  border-radius: 1.5rem;
+  color: aliceblue;
+}
+
+.form-group__button:hover {
+  cursor: pointer;
+  background-color: aliceblue;
+  color: rgb(63, 174, 98);
+}

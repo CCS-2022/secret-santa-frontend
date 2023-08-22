@@ -1,9 +1,9 @@
-// import { redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import keycloak from "./keycloak";
 
 export function checkAuthLoader() {
   if (!keycloak.authenticated) {
-    keycloak.login();
+    return redirect("/");
   }
   return null;
 }

@@ -25,6 +25,12 @@ export default function MainNavigation() {
           {!keycloak.authenticated && <NavLinksIntro></NavLinksIntro>}
           {keycloak.authenticated && <NavLinksMain></NavLinksMain>}
         </ul>
+
+        <button className={classes["toggle-button"]}>
+          <span className={classes["toggle-button__bar"]}></span>
+          <span className={classes["toggle-button__bar"]}></span>
+          <span className={classes["toggle-button__bar"]}></span>
+        </button>
       </nav>
     </header>
   );

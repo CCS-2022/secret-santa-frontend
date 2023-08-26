@@ -1,0 +1,38 @@
+.toggle-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 3.3rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding-top: 0;
+  padding-bottom: 0;
+  vertical-align: middle;
+}
+
+.toggle-button:focus {
+  outline: none;
+}
+
+.toggle-button__bar {
+  width: 100%;
+  height: 0.2rem;
+  background: aliceblue;
+  display: block;
+  margin: 0.5rem 0;
+  border-radius: 1rem;
+}
+
+@media (min-width: 57rem) {
+  .toggle-button {
+    display: none;
+    width: 3rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 0;
+    padding-bottom: 0;
+    vertical-align: middle;
+  }
+}

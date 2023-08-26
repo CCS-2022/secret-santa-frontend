@@ -1,0 +1,11 @@
+.auth {
+  display: none;
+  align-items: center;
+  margin: 0 3rem;
+}
+
+@media (min-width: 57rem) {
+  .auth {
+    display: flex;
+  }
+}

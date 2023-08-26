@@ -4,6 +4,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 // import Backdrop from "../UI/Backdrop";
 import GroupForm from "./GroupForm";
+import ButtonUI from "../UI/ButtonUI";
 
 const MainHome = () => {
   const [displayForm, setDisplayForm] = useState(false);
@@ -30,13 +31,13 @@ const MainHome = () => {
           <p className={styles["group-id"]}>Group 5</p>
         </div>
         <div>
-          <button className={styles["plus-button"]} onClick={showForm}>
+          <ButtonUI onClick={showForm}>
             <FontAwesomeIcon className={styles["plus-icon"]} icon={faPlus} />
-          </button>
+          </ButtonUI>
         </div>
       </div>
       <div className={styles.characteristics}>
-        <h1>Group Name</h1>
+        <h2>Group Name</h2>
         <div className={styles["characteristics-friends"]}>
           <p className={styles["characteristics-friends__item"]}>Friend 1</p>
           <p className={styles["characteristics-friends__item"]}>Friend 2</p>
@@ -70,10 +71,8 @@ const MainHome = () => {
           <p className={styles["characteristics-friends__item"]}>Friend 5</p>
         </div>
         <div className={styles["characteristics__buttons"]}>
-          <button className={styles["characteristics__button"]}>
-            Add friend
-          </button>
-          <button className={styles["characteristics__button"]}>Shuffle</button>
+          <ButtonUI>Add friend</ButtonUI>
+          <ButtonUI>Shuffle</ButtonUI>
         </div>
       </div>
       {displayForm && <GroupForm onClose={hideForm}></GroupForm>}

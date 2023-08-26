@@ -1,6 +1,7 @@
 import classes from "./GroupForm.module.css";
 // import { Form } from "react-router-dom";
 import Backdrop from "../UI/Backdrop";
+import ButtonUI from "../UI/ButtonUI";
 
 const GroupForm = (props) => {
   return (
@@ -17,16 +18,10 @@ const GroupForm = (props) => {
         />
 
         <div>
-          <button className={classes["form-group__button"]} type="submit">
-            Add
-          </button>
-          <button
-            className={classes["form-group__button"]}
-            type="button"
-            onClick={props.onClose}
-          >
+          <ButtonUI type="submit">Add</ButtonUI>
+          <ButtonUI type="button" onClick={props.onClose}>
             Cancel
-          </button>
+          </ButtonUI>
         </div>
       </form>
     </Backdrop>

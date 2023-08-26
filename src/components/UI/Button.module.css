@@ -1,0 +1,16 @@
+.main-button {
+  background-color: rgb(63, 174, 98);
+  padding: 0.7rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  color: aliceblue;
+  margin: 0 0.5rem;
+  /* margin: auto; */
+}
+
+.main-button:hover {
+  background-color: aliceblue;
+  color: rgb(63, 174, 98);
+  cursor: pointer;
+}

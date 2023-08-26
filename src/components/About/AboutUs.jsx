@@ -1,4 +1,6 @@
+// import { Button } from "bootstrap";
 import classes from "./AboutUs.module.css";
+import ButtonUI from "../UI/ButtonUI";
 
 const AboutUs = () => {
   return (
@@ -45,11 +47,9 @@ const AboutUs = () => {
           Have questions, feedback, or just want to say hello? We will love to
           hear from you!
         </p>
-        <p>
-          <button className={classes["about-contact__btn"]}>
-            Contact us <a href="mailto:alexmar19190@gmail.com"> </a>
-          </button>
-        </p>
+        <ButtonUI>
+          Contact us <a href="mailto:alexmar19190@gmail.com"></a>{" "}
+        </ButtonUI>
       </div>
     </div>
   );

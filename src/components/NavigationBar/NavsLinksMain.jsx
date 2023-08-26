@@ -1,4 +1,4 @@
-import classes from "./MainNavigation.module.css";
+import classes from "./NavLinksMain.module.css";
 import keycloak from "../../util/keycloak";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

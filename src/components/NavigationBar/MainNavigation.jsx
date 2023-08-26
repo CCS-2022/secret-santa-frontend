@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import NavLinksIntro from "./NavLinksIntro";
 import NavLinksMain from "./NavsLinksMain";
 import keycloak from "../../util/keycloak";
-// import { useDispatch } from "react-redux";
+import SideButton from "./SideButton";
 
 export default function MainNavigation() {
   return (
@@ -25,12 +25,7 @@ export default function MainNavigation() {
           {!keycloak.authenticated && <NavLinksIntro></NavLinksIntro>}
           {keycloak.authenticated && <NavLinksMain></NavLinksMain>}
         </ul>
-
-        <button className={classes["toggle-button"]}>
-          <span className={classes["toggle-button__bar"]}></span>
-          <span className={classes["toggle-button__bar"]}></span>
-          <span className={classes["toggle-button__bar"]}></span>
-        </button>
+        <SideButton></SideButton>
       </nav>
     </header>
   );

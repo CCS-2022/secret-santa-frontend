@@ -1,5 +1,6 @@
 import keycloak from "../../util/keycloak";
 import styles from "./InstructionPage.module.css";
+import ButtonUI from "../UI/ButtonUI";
 
 export default function InstructionPage() {
   const handleLogin = () => {
@@ -21,13 +22,9 @@ export default function InstructionPage() {
           <p className={styles["main-step__description"]}>Get a match!</p>
         </div>
       </div>
-      <button
-        className={styles["main-button"]}
-        type="button"
-        onClick={handleLogin}
-      >
+      <ButtonUI type="button" onClick={handleLogin}>
         Get Started
-      </button>
+      </ButtonUI>
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import classes from "./MainNavigation.module.css";
+import classes from "./NavLinksIntro.module.css";
 import { NavLink } from "react-router-dom";
-// import { useDispatch } from "react-redux";
 import keycloak from "../../util/keycloak";
+import ButtonUI from "../UI/ButtonUI";
 
 const NavLinksIntro = () => {
   const loginHandler = () => {
@@ -14,9 +14,7 @@ const NavLinksIntro = () => {
         <NavLink to="about">About</NavLink>
       </li>
       <li>
-        <button onClick={loginHandler} className={classes["nav-link__button"]}>
-          Sign in
-        </button>
+        <ButtonUI onClick={loginHandler}>Sign in</ButtonUI>
       </li>
     </div>
   );

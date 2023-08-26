@@ -1,0 +1,18 @@
+.nav-links {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.bell-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: auto;
+}
+
+@media (min-width: 57rem) {
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

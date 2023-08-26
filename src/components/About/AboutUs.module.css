@@ -33,19 +33,3 @@
 .about-contact__pg {
   margin: 0.5rem 0;
 }
-
-.about-contact__btn {
-  background-color: rgb(63, 174, 98);
-  border: none;
-  padding: 0.7rem;
-  margin: 1rem;
-  border-radius: 1.5rem;
-  color: aliceblue;
-  font-size: 1.5rem;
-}
-
-.about-contact__btn:hover {
-  cursor: pointer;
-  background-color: aliceblue;
-  color: rgb(63, 174, 98);
-}

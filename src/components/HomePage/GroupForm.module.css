@@ -24,18 +24,3 @@
   text-align: center;
   color: aliceblue;
 }
-
-.form-group__button {
-  background-color: rgb(63, 174, 98);
-  border: none;
-  padding: 0.7rem;
-  margin: 1rem;
-  border-radius: 1.5rem;
-  color: aliceblue;
-}
-
-.form-group__button:hover {
-  cursor: pointer;
-  background-color: aliceblue;
-  color: rgb(63, 174, 98);
-}

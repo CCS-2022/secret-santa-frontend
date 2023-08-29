@@ -1,0 +1,29 @@
+.profile-tabs {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-tabs__pg {
+  color: aliceblue;
+  margin: 0 2rem;
+  font-size: 1.2rem;
+  padding: 0.8rem;
+  border: 1px solid aliceblue;
+  background-color: transparent;
+  list-style: none;
+  border-radius: 2rem;
+}
+
+.profile-tabs__pg:hover {
+  cursor: pointer;
+  color: aquamarine;
+  background-color: rgba(230, 176, 175, 0.5);
+}
+
+.profile-tabs__pg:active {
+  color: aquamarine;
+}
+
+.profile-tabs__tab {
+  margin-top: 2rem;
+}

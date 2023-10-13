@@ -9,17 +9,20 @@ export function checkAuthLoader() {
 }
 
 export function getAuthToken() {
-  const token = localStorage.getItem("1");
+  const token = keycloak.token;
+  // localStorage.setItem(token, 1);
+  // const token = localStorage.getItem("1");
+  // console.log(token);
+
   if (!token) {
     return null;
   }
-
   return token;
 }
 
 export function tokenLoader() {
   const token = getAuthToken();
-  localStorage.setItem(token, 1);
+  // localStorage.setItem(token, 1);
 
   return token;
 }

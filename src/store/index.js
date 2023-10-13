@@ -1,35 +1,16 @@
-import { createStore } from "redux";
-import keycloak from "../util/keycloak";
+import { configureStore } from "@reduxjs/toolkit";
+import friendsSlice from "./friends-slice";
+import groupsSlice from "./groups-slice";
+import friendRequestsSlice from "./friendRequests-slice";
+import wishlistSlice from "./wishlist-slice";
 
-const authKeycloak = keycloak.authenticated;
-
-const keycloakReducer = (state = { authenticated: authKeycloak }, action) => {
-  if (action.type == "login") {
-    keycloak
-      .init({ onLoad: "check-sso", pkceMethod: "S256" })
-      .then((authenticatedStatus) => {
-        console.log(authenticatedStatus);
-      })
-      .catch((error) => {
-        console.error("Keycloak initialization error:", error);
-      });
-
-    keycloak.login();
-    return {
-      authenticated: state.authKeycloak,
-    };
-  }
-
-  if (action.type == "logout") {
-    keycloak.logout();
-    return {
-      authenticated: state.authKeycloak,
-    };
-  }
-
-  return state;
-};
-
-const store = createStore(keycloakReducer);
+const store = configureStore({
+  reducer: {
+    friends: friendsSlice.reducer,
+    groups: groupsSlice.reducer,
+    friendRequests: friendRequestsSlice.reducer,
+    wishlist: wishlistSlice.reducer,
+  },
+});
 
 export default store;

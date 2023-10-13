@@ -2,24 +2,25 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import keycloak from "./util/keycloak";
-// import { Provider } from "react-redux";
-// import store from "./store";
+import { Provider } from "react-redux";
+import store from "./store";
 
 keycloak
   .init({ onLoad: "check-sso", pkceMethod: "S256" })
   .then(() => {
     console.log(keycloak);
-    localStorage.setItem("1", keycloak.token);
+    // // localStorage.setItem("1", keycloak.token);
+    // console.log(keycloak.authenticated);
+    // console.log(keycloak.token);
     const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<App />);
+    root.render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
   })
   .catch((error) => {
     console.error("Keycloak initialization error:", error);
   });
-
 // const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>
-// );
+// root.render(<App />);

@@ -1,12 +1,13 @@
-import classes from "./Profile.module.css";
-
-import { Fragment } from "react";
+import classes from "./WishlistTab.module.css";
+import WishlistForm from "../Wishlist/WishlistForm";
+import WishlistItems from "../Wishlist/WishlistItems";
 
 const WishlistTab = () => {
   return (
-    <Fragment>
-      <div className={classes["profile-tabs"]}>WishlistTab</div>
-    </Fragment>
+    <div className={classes["wishlist-page"]}>
+      <WishlistForm />
+      <WishlistItems />
+    </div>
   );
 };
 

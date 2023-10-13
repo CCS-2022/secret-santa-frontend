@@ -4,7 +4,7 @@
   /* background-color: black; */
   margin: auto;
   /* z-index: 100; */
-  height: 20rem;
+  /* height: 50rem; */
   /* background-color: rgb(10, 54, 93); */
   justify-content: center;
   align-items: center;
@@ -19,8 +19,13 @@
   border: 1px solid white;
   height: 2rem;
   width: 20rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   margin: 0.5rem 0;
   text-align: center;
   color: aliceblue;
+  overflow: hidden;
+}
+
+.buttons {
+  margin-top: 5rem;
 }

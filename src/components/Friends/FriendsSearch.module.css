@@ -1,0 +1,66 @@
+.friends-list {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3rem;
+  /* background-color: rgba(128, 128, 128, 0.3); */
+}
+
+.magnifying-glass {
+  height: 1.2rem;
+}
+
+.form-group__input {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+  height: 2rem;
+  width: 20rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0.5rem;
+  text-align: center;
+  color: aliceblue;
+  overflow: hidden;
+}
+
+.friends-list__ul {
+  position: absolute;
+  /* flex-direction: column; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: rgba(240, 248, 255, 1);
+  width: 15rem;
+  height: 10rem;
+  margin-top: 12rem;
+  align-items: center;
+  border-radius: 0.3rem;
+  /* color: black; */
+  overflow: auto;
+}
+
+.friends-list__ul-li {
+  color: black;
+  margin: 0.2rem 0;
+}
+
+.friends-list__ul-name {
+  padding: 0.3rem;
+}
+
+.friends-list__ul-button {
+  background-color: rgb(63, 174, 98);
+  border: none;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  color: aliceblue;
+}
+.friends-list__ul-button:hover {
+  background-color: rgb(72, 215, 118);
+  color: aliceblue;
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: aliceblue; /* Change the color to your desired color */
+}

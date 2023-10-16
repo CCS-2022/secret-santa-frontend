@@ -31,7 +31,7 @@ const MainHome = () => {
     console.log(token);
     console.log(groupId);
     const response = await fetch(
-      "http://localhost:8080/secret-santa/group?id=" + groupId,
+      "http://192.168.1.235:8080/secret-santa/group?id=" + groupId,
       {
         method: "GET",
         headers: {
@@ -58,7 +58,7 @@ const MainHome = () => {
     async function shuffle() {
       const token = getAuthToken();
       const response = await fetch(
-        "http://localhost:8080/secret-santa/group/shuffle?groupId=" +
+        "http://192.168.1.235:8080/secret-santa/group/shuffle?groupId=" +
           selectedGroupId,
         {
           method: "GET",

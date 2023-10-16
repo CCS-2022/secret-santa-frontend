@@ -6,12 +6,15 @@ export const fetchWishlistData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
       const token = getAuthToken();
-      const response = await fetch("http://localhost:8080/secret-santa/item", {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
+      const response = await fetch(
+        "http://192.168.1.235:8080/secret-santa/item",
+        {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
       if (!response.ok) {
         throw new Error("Sending Cart Data Failed!");
       }
@@ -42,14 +45,17 @@ export const createWishlistItem = (newItem) => {
     console.log(createItemBody);
 
     try {
-      const response = await fetch("http://localhost:8080/secret-santa/item", {
-        method: "POST",
-        body: JSON.stringify(createItemBody),
-        headers: {
-          "Content-Type": "application/JSON",
-          Authorization: "Bearer " + token,
-        },
-      });
+      const response = await fetch(
+        "http://192.168.1.235:8080/secret-santa/item",
+        {
+          method: "POST",
+          body: JSON.stringify(createItemBody),
+          headers: {
+            "Content-Type": "application/JSON",
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
 
       if (!response.ok) {
         console.error("Request failed with status:", response.status);
@@ -76,7 +82,7 @@ export const deleteItemFromWishlist = (item) => {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/secret-santa/item/remove",
+        "http://192.168.1.235:8080/secret-santa/item/remove",
         {
           method: "POST",
           body: JSON.stringify(deleteItemBody),

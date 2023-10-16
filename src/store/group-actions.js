@@ -7,7 +7,7 @@ export const fetchGroupsData = () => {
       const token = getAuthToken();
 
       const response = await fetch(
-        "http://localhost:8080/secret-santa/user/groups",
+        "http://192.168.1.235:8080/secret-santa/user/groups",
         {
           method: "GET",
           headers: {
@@ -45,14 +45,17 @@ export const createNewGroup = (newItem) => {
     console.log(createItemBody);
 
     try {
-      const response = await fetch("http://localhost:8080/secret-santa/group", {
-        method: "POST",
-        body: JSON.stringify(createItemBody[0]),
-        headers: {
-          "Content-Type": "application/JSON",
-          Authorization: "Bearer " + token,
-        },
-      });
+      const response = await fetch(
+        "http://192.168.1.235:8080/secret-santa/group",
+        {
+          method: "POST",
+          body: JSON.stringify(createItemBody[0]),
+          headers: {
+            "Content-Type": "application/JSON",
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
 
       if (!response.ok) {
         console.error("Request failed with status:", response.status);

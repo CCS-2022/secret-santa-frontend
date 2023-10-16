@@ -35,8 +35,35 @@ export const fetchGroupsData = () => {
   };
 };
 
-// creatorId: "b00e2f84-3473-4911-8f92-afc019b5c68f"
-// dateCreated: "2023-09-24"
-// groupId: 5
-// groupName: "Rocket League Gods"
-// memberIds: null
+// ===================================
+export const createNewGroup = (newItem) => {
+  return async (dispatch) => {
+    const token = getAuthToken();
+
+    const createItemBody = newItem.addGroup || [];
+    console.log("Create ITEM body ========");
+    console.log(createItemBody);
+
+    try {
+      const response = await fetch("http://localhost:8080/secret-santa/group", {
+        method: "POST",
+        body: JSON.stringify(createItemBody[0]),
+        headers: {
+          "Content-Type": "application/JSON",
+          Authorization: "Bearer " + token,
+        },
+      });
+
+      if (!response.ok) {
+        console.error("Request failed with status:", response.status);
+        throw new Error("Failed to respond to friend request");
+      }
+
+      dispatch(groupsActions.clearAddGroup());
+    } catch (error) {
+      console.error("An error occurred:", error);
+      // Handle the error (e.g., show a notification to the user).
+      throw error;
+    }
+  };
+};

@@ -28,6 +28,7 @@ const MainHome = () => {
 
   async function getMembers(groupId) {
     const token = getAuthToken();
+    console.log(token);
     console.log(groupId);
     const response = await fetch(
       "http://localhost:8080/secret-santa/group?id=" + groupId,
@@ -94,7 +95,7 @@ const MainHome = () => {
             </li>
           ))}
         </ul>
-        <div>
+        <div className={styles["plus-button"]}>
           <ButtonUI onClick={showForm}>
             <FontAwesomeIcon className={styles["plus-icon"]} icon={faPlus} />
           </ButtonUI>

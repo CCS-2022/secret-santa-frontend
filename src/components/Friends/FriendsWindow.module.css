@@ -1,6 +1,8 @@
 .friends-page__container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .friends-page__container > h1 {
@@ -9,20 +11,21 @@
 
 .friends-page__friends {
   background-color: rgba(230, 176, 175, 0.5);
-  width: 40rem;
-  padding: 1rem;
-  margin-right: 2rem;
+  width: 20rem;
+  /* padding: 1rem; */
+  /* margin-right: 2rem; */
   border-radius: 1rem;
-  height: 16rem;
+  height: 13rem;
 }
 
 .friends {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   margin-top: 1rem;
-  padding: 0 7rem;
-  height: 13rem;
+  padding: 0 3rem;
+  height: 10rem;
   overflow: auto;
 }
 
@@ -33,7 +36,7 @@
   background-color: rgba(240, 248, 255, 0.5);
   padding: 0.5rem 0.5rem;
   border-radius: 1rem;
-  margin: 2rem 0.2rem;
+  margin: 0.5rem 0.2rem;
 }
 
 .toggle-button {
@@ -66,4 +69,76 @@
 
 .toggle-button:hover {
   background-color: rgb(175, 173, 170);
+}
+
+@media (min-width: 57rem) {
+  .friends-page__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .friends-page__container > h1 {
+    margin-bottom: 1rem;
+  }
+
+  .friends-page__friends {
+    background-color: rgba(230, 176, 175, 0.5);
+    width: 40rem;
+    padding: 1rem;
+    margin-right: 2rem;
+    border-radius: 1rem;
+    height: 16rem;
+  }
+
+  .friends {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    padding: 0 7rem;
+    height: 13rem;
+    overflow: auto;
+  }
+
+  .friend-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(240, 248, 255, 0.5);
+    padding: 0.5rem 0.5rem;
+    border-radius: 1rem;
+    margin: 2rem 0.2rem;
+  }
+
+  .toggle-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: transparent;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    margin-left: 1rem;
+    vertical-align: middle;
+  }
+
+  .toggle-button:focus {
+    outline: none;
+  }
+
+  .toggle-button__bar {
+    width: 100%;
+    height: 0.3rem;
+    width: 0.3rem;
+    background: aliceblue;
+    display: block;
+
+    border-radius: 1rem;
+  }
+
+  .toggle-button:hover {
+    background-color: rgb(175, 173, 170);
+  }
 }

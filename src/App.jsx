@@ -11,7 +11,7 @@ import CreateGroupPage from "./pages/CreateGroup";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFriendsData } from "./store/friend-actions";
-import { fetchGroupsData } from "./store/group-actions";
+import { createNewGroup, fetchGroupsData } from "./store/group-actions";
 import {
   fetchFriendRequestsData,
   friendRequestsResponse,
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
 
 function App() {
   const dispatch = useDispatch();
-
+  const group = useSelector((state) => state.groups);
   const response = useSelector((state) => state.friendRequests.response);
   const wishlist = useSelector((state) => state.wishlist);
 
@@ -73,11 +73,19 @@ function App() {
     dispatch(fetchFriendsData());
   }, [response, dispatch]);
 
+  // CREATE GROUP
+  useEffect(() => {
+    console.log(1.2);
+    if (group.addGroupUpdate) {
+      dispatch(createNewGroup(group));
+    }
+  }, [group.addGroup, dispatch]);
+
   // FETCH GROUPS
   useEffect(() => {
     console.log(2);
     dispatch(fetchGroupsData());
-  }, [dispatch]);
+  }, [group.addGroup, dispatch]);
 
   // FETCH FRIEND REQUESTS
   useEffect(() => {

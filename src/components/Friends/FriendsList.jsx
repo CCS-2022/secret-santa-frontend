@@ -8,7 +8,7 @@ const FriendsList = () => {
   // ===============================================================================================================
 
   return (
-    <Fragment>
+    <div className={classes["friends-tab__container"]}>
       <div className={classes["friends-container"]}>
         <FriendsSearch />
       </div>
@@ -16,7 +16,7 @@ const FriendsList = () => {
         <FriendsWindow />
         <FriendsRequests />
       </div>
-    </Fragment>
+    </div>
   );
 };
 

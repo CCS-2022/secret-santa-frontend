@@ -1,5 +1,5 @@
 .header {
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   justify-content: center;
 }
@@ -12,10 +12,11 @@
 .list a {
   background-color: transparent;
   color: aliceblue;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1rem;
   border: 1px solid aliceblue;
   border-radius: 1rem;
   text-decoration: none;
+  font-size: 0.8rem;
 }
 
 .list a:hover,
@@ -33,4 +34,14 @@
 .main-form__item {
   height: 2rem;
   margin: 0.5rem;
+}
+
+@media (min-width: 57rem) {
+  .header {
+    padding: 2rem;
+  }
+  .list a {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.5rem;
+  }
 }

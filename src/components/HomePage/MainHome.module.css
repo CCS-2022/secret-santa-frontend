@@ -13,8 +13,9 @@
   justify-content: space-between;
   background-color: rgba(230, 176, 175, 0.5);
   padding: 2rem;
+  height: 15rem;
   width: 20rem;
-  margin: 1rem 1rem;
+  margin: 2rem 1rem;
   border-radius: 1rem;
 }
 
@@ -27,24 +28,13 @@
 }
 
 .group-id {
+  justify-content: center;
   padding: 0.5rem;
+  font-size: 1rem;
 }
 
 .plus-button {
-  /* width: 3rem;
-  height: 3rem; */
-  background-color: rgb(63, 174, 98);
-  border-radius: 100%;
-  padding: 0.4rem;
-  margin: auto;
-  border: none;
-  color: aliceblue;
-}
-
-.plus-button:hover {
-  cursor: pointer;
-  background-color: aliceblue;
-  color: rgb(63, 174, 98);
+  margin-top: 2rem;
 }
 
 .plus-icon {
@@ -61,14 +51,14 @@
   padding: 2rem;
   width: 20rem;
   height: 20rem;
-  margin: 3rem 1rem;
+  margin: 1rem 1rem;
   border-radius: 1rem;
 }
 
 .characteristics-friends {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 2rem;
   max-height: 8rem;
   overflow: auto;
@@ -76,6 +66,7 @@
 
 .characteristics-friends__item {
   margin: 0.5rem 2rem;
+  font-size: 1rem;
 }
 
 .characteristics__buttons {
@@ -83,7 +74,7 @@
 
   align-self: center;
   position: absolute;
-  bottom: 0.5rem;
+  bottom: 1rem;
 }
 
 .characteristics__button {
@@ -121,16 +112,8 @@
   }
 
   .groups {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-between;
-    background-color: rgba(230, 176, 175, 0.5);
-    padding: 2rem;
     height: 20rem;
-    width: 20rem;
     margin: 3rem 1rem;
-    border-radius: 1rem;
   }
 
   .groups-cluster {
@@ -143,6 +126,7 @@
 
   .group-id {
     padding: 0.5rem;
+    font-size: 1.3rem;
   }
 
   .plus-icon {
@@ -174,6 +158,7 @@
 
   .characteristics-friends__item {
     margin: 0.5rem 2.5rem;
+    font-size: 1.3rem;
   }
 
   .characteristics__buttons {

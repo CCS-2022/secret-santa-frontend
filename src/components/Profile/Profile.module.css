@@ -1,29 +1,47 @@
-.profile-tabs {
+.header {
+  padding: 1rem;
   display: flex;
   justify-content: center;
 }
 
-.profile-tabs__pg {
-  color: aliceblue;
-  margin: 0 2rem;
-  font-size: 1.2rem;
-  padding: 0.8rem;
-  border: 1px solid aliceblue;
+.list {
+  display: flex;
+  gap: 1rem;
+}
+
+.list a {
   background-color: transparent;
-  list-style: none;
-  border-radius: 2rem;
+  color: aliceblue;
+  padding: 0.5rem 1rem;
+  border: 1px solid aliceblue;
+  border-radius: 1rem;
+  text-decoration: none;
+  font-size: 0.8rem;
 }
 
-.profile-tabs__pg:hover {
-  cursor: pointer;
-  color: aquamarine;
-  background-color: rgba(230, 176, 175, 0.5);
+.list a:hover,
+.list a:active,
+.list a.active {
+  background-color: rgb(63, 174, 98);
 }
 
-.profile-tabs__pg:active {
-  color: aquamarine;
+.main-form {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
 }
 
-.profile-tabs__tab {
-  margin-top: 2rem;
+.main-form__item {
+  height: 2rem;
+  margin: 0.5rem;
+}
+
+@media (min-width: 57rem) {
+  .header {
+    padding: 2rem;
+  }
+  .list a {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.5rem;
+  }
 }

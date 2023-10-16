@@ -1,0 +1,107 @@
+.friends-page__container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.friends-page__container > h1 {
+  margin-bottom: 1rem;
+}
+
+.friends-page__requests {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgba(230, 176, 175, 0.5);
+  width: 20rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  height: 10rem;
+  overflow: auto;
+}
+
+.friends {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.friend-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(240, 248, 255, 0.5);
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  margin: 1rem 0.2rem;
+}
+
+.friend-container__button {
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.2rem 0.5rem;
+  margin: 0 0.1rem;
+  background-color: rgb(63, 174, 98);
+  color: aliceblue;
+}
+
+.friend-container__button:hover {
+  background-color: aliceblue;
+  color: rgb(63, 174, 98);
+  cursor: pointer;
+}
+
+@media (min-width: 57rem) {
+  .friends-page__container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .friends-page__container > h1 {
+    margin-bottom: 1rem;
+  }
+
+  .friends-page__requests {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgba(230, 176, 175, 0.5);
+    width: 25rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    height: 16rem;
+    overflow: auto;
+  }
+
+  .friends {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .friend-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(240, 248, 255, 0.5);
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    margin: 1rem 0.2rem;
+  }
+
+  .friend-container__button {
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.2rem 0.5rem;
+    margin: 0 0.1rem;
+    background-color: rgb(63, 174, 98);
+    color: aliceblue;
+  }
+
+  .friend-container__button:hover {
+    background-color: aliceblue;
+    color: rgb(63, 174, 98);
+    cursor: pointer;
+  }
+}

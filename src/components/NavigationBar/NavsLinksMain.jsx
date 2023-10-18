@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 
 const NavLinksMain = () => {
   const logoutHandler = () => {
-    keycloak.logout({ redirectUri: "http://192.168.1.235:8080" });
+    keycloak.logout({ redirectUri: "http://192.168.1.235:5173" });
   };
 
   return (

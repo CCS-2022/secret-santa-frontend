@@ -6,8 +6,12 @@ COPY package.json package.json
 
 COPY package-lock.json package-lock.json
 
+COPY vite.config.js vite.config.js
+
 RUN npm install
 
 COPY . .
 
-CMD ["npm", "run", "start"]
+RUN npm run build
+
+CMD ["npm", "run", "dev", "--", "--host"]

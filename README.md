@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<<<<<<< HEAD 
 # secret-santa-frontend
 =======
 # secret-santa-vite

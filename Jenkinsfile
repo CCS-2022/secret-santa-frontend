@@ -1,6 +1,6 @@
 pipeline {
     agent any
-/*    environment {
+    environment {
         CI = true
         ARTIFACTORY_ACCESS_TOKEN = credentials('artifactory-access-token')
         SSServer = credentials('SSServerIP')
@@ -10,9 +10,9 @@ pipeline {
         DockerID = credentials('DockerHubUser')
         DevZone = credentials('DevZone') 
         VERSION = "${BUILD_NUMBER}"
-        SONARSCANNER = credentials('SonarScannerPath')
+       // SONARSCANNER = credentials('SonarScannerPath')
     }
-*/
+
     
     stages {
         stage('Git Checkout') {
@@ -26,7 +26,8 @@ pipeline {
             steps {
                 tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
                 withSonarQubeEnv(credentialsId: 'SSFrontEnd-SonarQube', installationName: 'SSFrontEndSonar') {
-                    sh "$SONARSCANNER"
+                    //sh "$SONARSCANNER"
+                    sh "./gradlew sonarqube"
                 }
             }    
         }

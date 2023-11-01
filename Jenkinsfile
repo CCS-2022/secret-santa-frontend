@@ -42,7 +42,7 @@ pipeline {
                            docker build -t ${DockerID}/${DevZone}:${ENVS}-${VERSION} .
                            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
                            docker push ${DockerID}/${DevZone}:${ENVS}-${VERSION}
-                           docker save -o ./images/ssfrontendCompressedImg${ENVS}-${VERSION}.tar ${DockerID}/${DevZone}:${ENVS}-${VERSION}
+                           docker save -o ./ssfrontendCompressedImg${ENVS}-${VERSION}.tar ${DockerID}/${DevZone}:${ENVS}-${VERSION}
                         '''
                     }
                 }
@@ -84,7 +84,7 @@ pipeline {
             steps {
                 echo '*** Removing Unused Images From Local Server ***'
                 sh 'sudo docker system prune -f'
-                sh 'sudo rm ./images/*'
+                sh 'sudo rm ./ssfrontendCompressedImg${ENVS}-${VERSION}.tar'
                 echo '*** Removing Unused Images From Remote SS Server ***'
                 script {
                     sh(script: """

@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    environment {
+/*    environment {
         CI = true
         ARTIFACTORY_ACCESS_TOKEN = credentials('artifactory-access-token')
         SSServer = credentials('SSServerIP')
@@ -12,7 +12,7 @@ pipeline {
         VERSION = "${BUILD_NUMBER}"
         SONARSCANNER = credentials('SonarScannerPath')
     }
-
+*/
     
     stages {
         stage('Git Checkout') {

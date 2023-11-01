@@ -10,10 +10,16 @@ pipeline {
         DockerID = credentials('DockerHubUser')
         DevZone = credentials('DevZone') 
         VERSION = "${BUILD_NUMBER}"
-       // SONARSCANNER = credentials('SonarScannerPath')
+        SONARSCANNER = credentials('SonarScannerPath')
     }
 
-    
+    stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+
     stages {
         stage('Git Checkout') {
             steps {
@@ -24,12 +30,8 @@ pipeline {
         stage('SonarQube Analysis') {
                 
             steps {
-                //tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-                //def scannerHome = tool 'SonarScanner';
                 withSonarQubeEnv(credentialsId: 'SSFrontEnd-SonarQube', installationName: 'SSFrontEndSonar') {
-                    //sh "$SONARSCANNER"
-                    //sh "${scannerHome}/bin/sonar-scanner"
-                    sh "/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner/bin/sonar-scanner"
+                    sh "$SONARSCANNER"
                 }
             }    
         }
@@ -65,22 +67,24 @@ pipeline {
         stage("Deploy To Container"){
             steps {
                 script {
-                    echo '*** Executing remote commands ***'
-                    
+                    echo '*** Executing remote commands ***'                  
                     try {
                         sh "ssh ${SSUser}@${SSServer} 'docker stop ${DevZone}'"
+                    } catch (Exception e) {
+                        echo "Container not running. Error: ${e}"
+                    }
+                    try {
                         sh "ssh ${SSUser}@${SSServer} 'docker rm ${DevZone}'"
                     } catch (Exception e) {
                         echo "Container not running. Error: ${e}"
                     }
-                    
                     sh "ssh ${SSUser}@${SSServer} 'docker pull ${DockerID}/${DevZone}:${ENVS}-${VERSION}'"
                     sh "ssh ${SSUser}@${SSServer} 'docker run -d -p ${Port}:${Port} --restart unless-stopped --name=${DevZone} ${DockerID}/${DevZone}:${ENVS}-${VERSION}'"
                 }                
             }
         }
         
-        stage('Remove Unused Docker Images') {
+        stage('Remove Unused Docker Storage') {
             steps {
                 echo '*** Removing Unused Images From Local Server ***'
                 sh 'docker system prune -f'

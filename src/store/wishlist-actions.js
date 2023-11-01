@@ -1,5 +1,4 @@
 import { getAuthToken } from "../util/auth";
-import { groupsActions } from "./groups-slice";
 import { wishlistActions } from "./wishlist-slice";
 
 export const fetchWishlistData = () => {
@@ -99,6 +98,48 @@ export const deleteItemFromWishlist = (item) => {
       }
 
       dispatch(wishlistActions.clearDeleteItem());
+    } catch (error) {
+      console.error("An error occurred:", error);
+      // Handle the error (e.g., show a notification to the user).
+      throw error;
+    }
+  };
+};
+
+// ===================================
+export const updateItemFromWishlist = (item) => {
+  return async (dispatch) => {
+    const token = getAuthToken();
+    // console.log(token);
+    const createBody = {
+      itemId: item.itemId,
+      name: item.name,
+      itemUrl: item.itemUrl,
+      groupId: item.groupId,
+      userId: item.userId,
+    };
+    console.log("CREATE ITEM body ========");
+    console.log(createBody);
+
+    try {
+      const response = await fetch(
+        "http://192.168.1.235:8080/secret-santa/item/update",
+        {
+          method: "POST",
+          body: JSON.stringify(createBody),
+          headers: {
+            "Content-Type": "application/JSON",
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        console.error("Request failed with status:", response.status);
+        throw new Error("Failed to respond to friend request");
+      }
+      dispatch(wishlistActions.clearUpdateItem());
+      dispatch(fetchWishlistData());
     } catch (error) {
       console.error("An error occurred:", error);
       // Handle the error (e.g., show a notification to the user).

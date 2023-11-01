@@ -1,6 +1,6 @@
-import keycloak from "../../util/keycloak";
+import keycloak from "../../../util/keycloak";
 import styles from "./InstructionPage.module.css";
-import ButtonUI from "../UI/ButtonUI";
+import ButtonUI from "../../UI/ButtonUI";
 
 export default function InstructionPage() {
   const handleLogin = () => {

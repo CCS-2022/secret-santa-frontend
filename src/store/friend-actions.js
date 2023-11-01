@@ -7,7 +7,7 @@ export const fetchFriendsData = () => {
       const token = getAuthToken();
 
       const response = await fetch(
-        "http://localhost:8080/secret-santa/user/friends",
+        "http://192.168.1.235:8080/secret-santa/user/friends",
         {
           method: "GET",
           headers: {
@@ -34,6 +34,46 @@ export const fetchFriendsData = () => {
       );
     } catch (error) {
       console.log("Error");
+    }
+  };
+};
+
+// ===================================
+export const removeFriend = (item) => {
+  return async (dispatch) => {
+    const token = getAuthToken();
+    // console.log(token);
+    const createBody = {
+      userId: item.userId,
+      firstName: item.firstName,
+      lastName: item.lastName,
+    };
+    console.log("CREATE ITEM body ========");
+    console.log(createBody);
+
+    try {
+      const response = await fetch(
+        "http://192.168.1.235:8080/secret-santa/user/remove-friend",
+        {
+          method: "POST",
+          body: JSON.stringify(createBody),
+          headers: {
+            "Content-Type": "application/JSON",
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        console.error("Request failed with status:", response.status);
+        throw new Error("Failed to respond to friend request");
+      }
+
+      dispatch(fetchFriendsData());
+    } catch (error) {
+      console.error("An error occurred:", error);
+      // Handle the error (e.g., show a notification to the user).
+      throw error;
     }
   };
 };

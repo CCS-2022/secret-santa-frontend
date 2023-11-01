@@ -11,3 +11,19 @@
 .footer-company {
   font-size: 0.8rem;
 }
+/* 
+@media (min-width: 57rem) {
+  .footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    color: rgb(239, 83, 83);
+  }
+
+  .footer-company {
+    font-size: 0.8rem;
+  }
+} */

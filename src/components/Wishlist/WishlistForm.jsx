@@ -31,7 +31,7 @@ const WishlistForm = () => {
 
   return (
     <div className={classes["form-container"]}>
-      <h1>WishlistTab</h1>
+      <h1>Create Item</h1>
       <div className={classes["profile-tabs"]}>
         <form onSubmit={addItemHandler} className={classes["main-form"]}>
           <input
@@ -42,6 +42,7 @@ const WishlistForm = () => {
             value={item}
             onChange={itemChangehandler}
             placeholder="Item Name"
+            required
           />
           <input
             className={classes["main-form__item"]}
@@ -51,6 +52,7 @@ const WishlistForm = () => {
             value={itemUrl}
             onChange={itemUrlChangehandler}
             placeholder="Item Link"
+            required
           />
           <ButtonUI type="submit">Add Item</ButtonUI>
         </form>

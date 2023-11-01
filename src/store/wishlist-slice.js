@@ -8,6 +8,7 @@ const wishlistSlice = createSlice({
     addItem: [],
     deleteItem: [],
     addItemUpdate: false,
+    itemToUpdate: [],
   },
   reducers: {
     getWishlist(state, action) {
@@ -25,7 +26,17 @@ const wishlistSlice = createSlice({
       });
       state.addItemUpdate = !state.addItemUpdate;
     },
-    updateWishlist(state, action) {},
+    updateWishlist(state, action) {
+      const { name, itemId, itemUrl, groupId, userId } = action.payload;
+      state.itemToUpdate.push({
+        name: name,
+        itemId: itemId,
+        itemUrl: itemUrl,
+        groupId: groupId,
+        userId: userId,
+      });
+      state.addItemUpdate = !state.addItemUpdate;
+    },
     deleteFromWishlist(state, action) {
       const itemToDelete = action.payload;
       // const existingItem = state.wishlist.find(
@@ -43,6 +54,10 @@ const wishlistSlice = createSlice({
     },
     clearDeleteItem(state) {
       state.deleteItem = [];
+      state.addItemUpdate = !state.addItemUpdate;
+    },
+    clearUpdateItem(state) {
+      state.itemToUpdate = [];
       state.addItemUpdate = !state.addItemUpdate;
     },
   },

@@ -1,12 +1,10 @@
 import classes from "./GroupForm.module.css";
-import ButtonUI from "../UI/ButtonUI";
-
+import ButtonUI from "../../UI/ButtonUI";
 import { useState } from "react";
-import keycloak from "../../util/keycloak";
-import { getAuthToken } from "../../util/auth";
-import Backdrop from "../UI/Backdrop";
+import keycloak from "../../../util/keycloak";
+import Backdrop from "../../UI/Backdrop";
 import { useDispatch, useSelector } from "react-redux";
-import { groupsActions } from "../../store/groups-slice";
+import { groupsActions } from "../../../store/groups-slice";
 
 const GroupForm = (props) => {
   const friendsTwo = useSelector((state) => state.friends.friends);

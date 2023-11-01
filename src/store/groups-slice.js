@@ -2,16 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const groupsSlice = createSlice({
   name: "groups",
-  initialState: { groups: [], addGroup: [], addGroupUpdate: false },
+  initialState: {
+    groups: [],
+    addGroup: [],
+    groupMembers: [],
+    addGroupUpdate: false,
+    currentGroupId: null,
+  },
   reducers: {
     getGroups(state, action) {
       state.groups = action.payload.groups;
     },
     createGroup(state, action) {
       const { groupName, creatorId, memberIds } = action.payload;
-      console.log(groupName);
-      console.log(creatorId);
-      console.log(memberIds);
       state.addGroup.push({
         groupName: groupName,
         creatorId: creatorId,
@@ -22,6 +25,12 @@ const groupsSlice = createSlice({
     clearAddGroup(state) {
       state.addGroup = [];
       state.addGroupUpdate = !state.addGroupUpdate;
+    },
+    getMembers(state, action) {
+      state.groupMembers = action.payload.groupMembers;
+    },
+    selectedGroupId(state, action) {
+      state.currentGroupId = action.payload;
     },
   },
 });

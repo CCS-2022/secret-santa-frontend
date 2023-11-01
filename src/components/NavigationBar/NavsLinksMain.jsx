@@ -4,10 +4,29 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import NotificationField from "../Notification/Notification";
+import { useSelector } from "react-redux";
 
 const NavLinksMain = () => {
+  const friendRequests = useSelector(
+    (state) => state.friendRequests.friendRequests
+  );
+  console.log(friendRequests.length);
+  const [displayForm, setDisplayFrom] = useState(false);
+
+  const showForm = () => {
+    setDisplayFrom(true);
+  };
+
+  const hideForm = () => {
+    setDisplayFrom(false);
+  };
+
   const logoutHandler = () => {
-    keycloak.logout({ redirectUri: "http://192.168.1.235:5173" });
+
+    keycloak.logout({ redirectUri: "http://192.168.1.235:5173/" });
+
   };
 
   return (
@@ -20,8 +39,16 @@ const NavLinksMain = () => {
           <Link to="/profile">Account</Link>
         </li>
         <li onClick={logoutHandler}>Logout</li>
-        <li>
-          <FontAwesomeIcon icon={faBell} className={classes["bell-icon"]} />
+        <li className={classes["auth-li"]}>
+          <FontAwesomeIcon
+            onClick={showForm}
+            icon={faBell}
+            className={classes["bell-icon"]}
+          />
+          {displayForm && <NotificationField onClick={hideForm} />}
+          {friendRequests.length !== 0 && (
+            <span className={classes["notification-span"]}></span>
+          )}
         </li>
       </ul>
     </div>

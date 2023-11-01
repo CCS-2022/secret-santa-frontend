@@ -1,10 +1,24 @@
+import { useState } from "react";
 import { wishlistActions } from "../../store/wishlist-slice";
 import classes from "./WishlistItems.module.css";
 import { useDispatch, useSelector } from "react-redux";
+import UpdateForm from "./UpdateForm";
 
 const WishlistItems = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.wishlist.wishlist);
+  const [displayForm, setDisplayFrom] = useState(false);
+
+  const showForm = (item) => {
+    setDisplayFrom(true);
+    dispatch(wishlistActions.updateWishlist(item));
+    console.log(item);
+  };
+
+  const hideForm = () => {
+    dispatch(wishlistActions.clearUpdateItem());
+    setDisplayFrom(false);
+  };
 
   function deleteItemHandler(itemId) {
     dispatch(wishlistActions.deleteFromWishlist(itemId));
@@ -28,7 +42,10 @@ const WishlistItems = () => {
               </div>
               <hr />
               <div className={classes["wishlist-items__buttons"]}>
-                <button className={classes["wishlist-items__button"]}>
+                <button
+                  onClick={() => showForm(item)}
+                  className={classes["wishlist-items__button"]}
+                >
                   Update
                 </button>
                 <button
@@ -42,6 +59,8 @@ const WishlistItems = () => {
           ))}
         </ul>
       </div>
+
+      {displayForm && <UpdateForm onClose={hideForm} />}
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import styles from "./Main.module.css";
 
-import InstructionPage from "./InstructionPage";
+import InstructionPage from "./LandingPage/InstructionPage";
 import { Fragment } from "react";
 import keycloak from "../../util/keycloak";
-import ActionCall from "./ActionCall";
-import MainHome from "./MainHome";
+import ActionCall from "./LandingPage/ActionCall";
+import MainHome from "./HomePage/MainHome";
 import BackgroundImgs from "../UI/BackgroundImgs";
 
 export default function MainPage() {

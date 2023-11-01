@@ -27,6 +27,7 @@ pipeline {
                 tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
                 withSonarQubeEnv(credentialsId: 'SSFrontEnd-SonarQube', installationName: 'SSFrontEndSonar') {
                     //sh "$SONARSCANNER"
+                    def projectKey = 'SSFrontEnd'
                     sh "/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner/bin/sonar-scanner"
                 }
             }    

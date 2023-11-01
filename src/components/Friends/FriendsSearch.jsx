@@ -21,7 +21,7 @@ const FriendsSearch = () => {
       const token = getAuthToken();
       console.log(token);
       const response = await fetch(
-        "http://localhost:8080/secret-santa/user/search-users?name=" +
+        "http://192.168.1.235:8080/secret-santa/user/search-users?name=" +
           friendName,
         {
           method: "GET",

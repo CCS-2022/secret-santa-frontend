@@ -13,14 +13,16 @@ pipeline {
         SONARSCANNER = credentials('SonarScannerPath')
     }
 
+
+
     stages {
+        
         stage('Clean Workspace') {
             steps {
                 cleanWs()
             }
         }
-
-    stages {
+ 
         stage('Git Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/CCS-2022/secret-santa-frontend.git'

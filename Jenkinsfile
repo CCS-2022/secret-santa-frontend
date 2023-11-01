@@ -80,14 +80,14 @@ pipeline {
         stage('Remove Unused Docker Images') {
             steps {
                 echo '*** Removing Unused Images From Local Server ***'
-                sh 'sudo docker image prune -af'
+                sh 'sudo docker system prune -f'
                 sh 'sudo rm ./images/*'
                 echo '*** Removing Unused Images From Remote SS Server ***'
                 script {
                     sh(script: """
                             
                             echo 
-                            ssh ${SSUser}@${SSServer} sudo docker image prune -af
+                            ssh ${SSUser}@${SSServer} sudo docker image prune -f
                             """, returnStdout: true)
                 }
             }

@@ -24,10 +24,11 @@ pipeline {
         stage('SonarQube Analysis') {
                 
             steps {
-                tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                //tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                //def scannerHome = tool 'SonarScanner';
                 withSonarQubeEnv(credentialsId: 'SSFrontEnd-SonarQube', installationName: 'SSFrontEndSonar') {
                     //sh "$SONARSCANNER"
-                    def projectKey = 'SSFrontEnd'
+                    //sh "${scannerHome}/bin/sonar-scanner"
                     sh "/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner/bin/sonar-scanner"
                 }
             }    

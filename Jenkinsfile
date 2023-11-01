@@ -68,14 +68,14 @@ pipeline {
                     echo '*** Executing remote commands ***'
                     
                     try {
-                        sh "ssh ${SSUser}@${SSServer} 'sudo docker stop ${DevZone}'"
-                        sh "ssh ${SSUser}@${SSServer} 'sudo docker rm ${DevZone}'"
+                        sh "ssh ${SSUser}@${SSServer} 'docker stop ${DevZone}'"
+                        sh "ssh ${SSUser}@${SSServer} 'docker rm ${DevZone}'"
                     } catch (Exception e) {
                         echo "Container not running. Error: ${e}"
                     }
                     
-                    sh "ssh ${SSUser}@${SSServer} 'sudo docker pull ${DockerID}/${DevZone}:${ENVS}-${VERSION}'"
-                    sh "ssh ${SSUser}@${SSServer} 'sudo docker run -d -p ${Port}:${Port} --restart unless-stopped --name=${DevZone} ${DockerID}/${DevZone}:${ENVS}-${VERSION}'"
+                    sh "ssh ${SSUser}@${SSServer} 'docker pull ${DockerID}/${DevZone}:${ENVS}-${VERSION}'"
+                    sh "ssh ${SSUser}@${SSServer} 'docker run -d -p ${Port}:${Port} --restart unless-stopped --name=${DevZone} ${DockerID}/${DevZone}:${ENVS}-${VERSION}'"
                 }                
             }
         }
@@ -83,14 +83,13 @@ pipeline {
         stage('Remove Unused Docker Images') {
             steps {
                 echo '*** Removing Unused Images From Local Server ***'
-                sh 'sudo docker system prune -f'
-                sh 'sudo rm ./ssfrontendCompressedImg${ENVS}-${VERSION}.tar'
+                sh 'docker system prune -f'
+               // sh 'rm ./ssfrontendCompressedImg${ENVS}-${VERSION}.tar'
                 echo '*** Removing Unused Images From Remote SS Server ***'
                 script {
                     sh(script: """
-                            
                             echo 
-                            ssh ${SSUser}@${SSServer} sudo docker image prune -f
+                            ssh ${SSUser}@${SSServer} docker system prune -f
                             """, returnStdout: true)
                 }
             }

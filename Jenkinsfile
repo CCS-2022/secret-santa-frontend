@@ -58,7 +58,7 @@ pipeline {
             }
             steps {
                 echo "*** Uploading to Artifactory ***"
-                sh 'jfrog rt upload --url http://${Artifactory}/artifactory/ --access-token ${ARTIFACTORY_ACCESS_TOKEN} ./images/${DevZone}CompressedImg${ENVS}-${VERSION}.tar ss-frontend-${ENVS}/'
+                sh 'jfrog rt upload --url http://${Artifactory}/artifactory/ --access-token ${ARTIFACTORY_ACCESS_TOKEN} ./${DevZone}CompressedImg${ENVS}-${VERSION}.tar ss-frontend-${ENVS}/'
             }
         }
 

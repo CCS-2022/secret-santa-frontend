@@ -90,7 +90,6 @@ pipeline {
             steps {
                 echo '*** Removing Unused Images From Local Server ***'
                 sh 'docker system prune -f'
-               // sh 'rm ./ssfrontendCompressedImg${ENVS}-${VERSION}.tar'
                 echo '*** Removing Unused Images From Remote SS Server ***'
                 script {
                     sh(script: """

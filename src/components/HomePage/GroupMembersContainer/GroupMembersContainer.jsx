@@ -26,7 +26,7 @@ export default function GroupsMembersContainer({ onClick }) {
     async function shuffle() {
       const token = getAuthToken();
       const response = await fetch(
-        "https://192.168.1.235:8443/secret-santa/group/shuffle?groupId=" +
+        "http://192.168.1.235:8080/secret-santa/group/shuffle?groupId=" +
           fetchedGroupId,
         {
           method: "GET",

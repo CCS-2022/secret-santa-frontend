@@ -93,7 +93,6 @@ pipeline {
                 echo '*** Removing Unused Images From Remote SS Server ***'
                 sh 'ssh ${SSUser}@${SSServer} docker system prune -f'
                 }
-            }
         }
     }
 }

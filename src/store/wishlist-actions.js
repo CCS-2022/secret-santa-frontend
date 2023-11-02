@@ -6,7 +6,7 @@ export const fetchWishlistData = () => {
     const fetchData = async () => {
       const token = getAuthToken();
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/item",
+        "https://192.168.1.235:8443/secret-santa/item",
         {
           method: "GET",
           headers: {
@@ -45,7 +45,7 @@ export const createWishlistItem = (newItem) => {
 
     try {
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/item",
+        "https://192.168.1.235:8443/secret-santa/item",
         {
           method: "POST",
           body: JSON.stringify(createItemBody),
@@ -81,7 +81,7 @@ export const deleteItemFromWishlist = (item) => {
 
     try {
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/item/remove",
+        "https://192.168.1.235:8443/secret-santa/item/remove",
         {
           method: "POST",
           body: JSON.stringify(deleteItemBody),
@@ -123,7 +123,7 @@ export const updateItemFromWishlist = (item) => {
 
     try {
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/item/update",
+        "https://192.168.1.235:8443/secret-santa/item/update",
         {
           method: "POST",
           body: JSON.stringify(createBody),

@@ -7,7 +7,7 @@ export const fetchGroupsData = () => {
       const token = getAuthToken();
 
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/user/groups",
+        "https://192.168.1.235:8443/secret-santa/user/groups",
         {
           method: "GET",
           headers: {
@@ -43,7 +43,7 @@ export const fetchGroupsMembers = (groupId) => {
       const token = getAuthToken();
       console.log(groupId);
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/group?id=" + groupId,
+        "https://192.168.1.235:8443/secret-santa/group?id=" + groupId,
         {
           method: "GET",
           headers: {
@@ -86,7 +86,7 @@ export const createNewGroup = (newItem) => {
 
     try {
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/group",
+        "https://192.168.1.235:8443/secret-santa/group",
         {
           method: "POST",
           body: JSON.stringify(createItemBody[0]),
@@ -129,7 +129,7 @@ export const addNewMember = (addFriend) => {
 
     try {
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/group/add-members?groupId=" +
+        "https://192.168.1.235:8443/secret-santa/group/add-members?groupId=" +
           addFriend.groupId,
         {
           method: "POST",

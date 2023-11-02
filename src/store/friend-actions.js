@@ -7,7 +7,7 @@ export const fetchFriendsData = () => {
       const token = getAuthToken();
 
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/user/friends",
+        "https://192.168.1.235:8443/secret-santa/user/friends",
         {
           method: "GET",
           headers: {
@@ -53,7 +53,7 @@ export const removeFriend = (item) => {
 
     try {
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/user/remove-friend",
+        "https://192.168.1.235:8443/secret-santa/user/remove-friend",
         {
           method: "POST",
           body: JSON.stringify(createBody),

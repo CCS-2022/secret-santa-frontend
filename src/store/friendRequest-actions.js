@@ -7,7 +7,7 @@ export const fetchFriendRequestsData = () => {
       const token = getAuthToken();
 
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/user/view-friend-requests",
+        "s://192.168.1.235:8443/secret-santa/user/view-friend-requests",
         {
           method: "GET",
           headers: {
@@ -69,7 +69,7 @@ export const friendRequestsResponse = (friendshipId, answer) => {
 
     try {
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/user/process-request",
+        "https://192.168.1.235:8443/secret-santa/user/process-request",
         {
           method: "POST",
           body: JSON.stringify(acceptRequestBody),
@@ -117,7 +117,7 @@ export const friendRequestSend = async (userId) => {
 
   try {
     const response = await fetch(
-      "http://192.168.1.235:8080/secret-santa/user/friend-request",
+      "https://192.168.1.235:8443/secret-santa/user/friend-request",
       {
         method: "POST",
         body: JSON.stringify(send),

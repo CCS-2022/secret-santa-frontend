@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import ButtonUI from "../../UI/ButtonUI";
 import { useState } from "react";
 import AddFriendForm from "./AddFriendForm";
+import { getAuthToken } from "../../../util/auth";
 
 export default function GroupsMembersContainer({ onClick }) {
   // Using State

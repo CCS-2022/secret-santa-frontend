@@ -91,13 +91,8 @@ pipeline {
                 echo '*** Removing Unused Images From Local Server ***'
                 sh 'docker system prune -f'
                 echo '*** Removing Unused Images From Remote SS Server ***'
-                script {
-                    sh(script: """
-                            echo 
-                            ssh ${SSUser}@${SSServer} docker system prune -f
-                            """, returnStdout: true)
+                sh 'ssh ${SSUser}@${SSServer} docker system prune -f'
                 }
-            }
         }
     }
 }

@@ -7,12 +7,14 @@ export const fetchGroupsData = () => {
     const fetchData = async () => {
       const token = getAuthToken();
 
+
       const response = await fetch(baseFetchUrl + "secret-santa/user/groups", {
         method: "GET",
         headers: {
           Authorization: "Bearer " + token,
         },
       });
+
       if (!response.ok) {
         throw new Error("Sending Cart Data Failed!");
       }
@@ -83,6 +85,7 @@ export const createNewGroup = (newItem) => {
     console.log(createItemBody);
 
     try {
+
       const response = await fetch(baseFetchUrl + "secret-santa/group", {
         method: "POST",
         body: JSON.stringify(createItemBody[0]),
@@ -91,6 +94,7 @@ export const createNewGroup = (newItem) => {
           Authorization: "Bearer " + token,
         },
       });
+
 
       if (!response.ok) {
         console.error("Request failed with status:", response.status);

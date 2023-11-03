@@ -1,6 +1,6 @@
 import keycloak from "./keycloak";
 
-const baseFetchUrl = "http://localhost:8080/";
+const baseFetchUrl = "https://192.168.1.235:8443/";
 export default baseFetchUrl;
 
 export async function getRequest() {

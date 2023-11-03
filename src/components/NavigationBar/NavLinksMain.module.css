@@ -1,5 +1,5 @@
 .nav-links {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -22,7 +22,15 @@
   right: 0;
 }
 
-@media (min-width: 57rem) {
+@media (max-width: 30rem) {
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 20rem) {
   .nav-links {
     display: flex;
     justify-content: center;

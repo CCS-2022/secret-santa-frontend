@@ -5,9 +5,9 @@
   justify-content: space-between;
   background-color: rgba(230, 176, 175, 0.5);
   padding: 2rem;
-  height: 15rem;
+  height: 20rem;
   width: 20rem;
-  margin: 2rem 1rem;
+  margin: 3rem 1rem;
   border-radius: 1rem;
 }
 
@@ -34,27 +34,30 @@
   height: 1.5rem;
 }
 
-@media (min-width: 57rem) {
+@media (max-width: 30rem) {
   .groups {
-    height: 20rem;
-    margin: 3rem 1rem;
-  }
-
-  .groups-cluster {
-    display: flex;
-    flex-direction: column;
-    /* padding: 0 0; */
-    max-height: 12rem;
-    overflow: auto;
+    height: 13rem;
+    margin: 0rem 1rem;
+    width: 80%;
   }
 
   .group-id {
-    padding: 0.5rem;
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .plus-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+@media (max-height: 60rem) {
+  .groups {
+    height: 20rem;
+  }
+}
+@media (max-height: 47rem) {
+  .groups {
+    height: 13rem;
   }
 }

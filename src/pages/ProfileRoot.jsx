@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import ProfileNav from "../components/Profile/ProfileNav";
 import { Outlet } from "react-router-dom";
 import keycloak from "../util/keycloak";
+import ButtonUI from "../components/UI/ButtonUI";
 
 export default function ProfileRoot() {
   const auth = keycloak.authenticated;

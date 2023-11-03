@@ -1,4 +1,5 @@
 import { getAuthToken } from "../util/auth";
+import baseFetchUrl from "../util/requests";
 import { friendsRequestsActions } from "./friendRequests-slice";
 
 export const fetchFriendRequestsData = () => {
@@ -7,7 +8,7 @@ export const fetchFriendRequestsData = () => {
       const token = getAuthToken();
 
       const response = await fetch(
-        "s://192.168.1.235:8443/secret-santa/user/view-friend-requests",
+        baseFetchUrl + "secret-santa/user/view-friend-requests",
         {
           method: "GET",
           headers: {
@@ -69,7 +70,7 @@ export const friendRequestsResponse = (friendshipId, answer) => {
 
     try {
       const response = await fetch(
-        "https://192.168.1.235:8443/secret-santa/user/process-request",
+        baseFetchUrl + "secret-santa/user/process-request",
         {
           method: "POST",
           body: JSON.stringify(acceptRequestBody),
@@ -108,6 +109,7 @@ export const friendRequestsResponse = (friendshipId, answer) => {
 export const friendRequestSend = async (userId) => {
   const token = getAuthToken();
   console.log(token);
+  console.log(userId);
   const send = { recipient: userId };
   if (!token) {
     console.error("No valid token available.");
@@ -117,7 +119,7 @@ export const friendRequestSend = async (userId) => {
 
   try {
     const response = await fetch(
-      "https://192.168.1.235:8443/secret-santa/user/friend-request",
+      baseFetchUrl + "secret-santa/user/friend-request",
       {
         method: "POST",
         body: JSON.stringify(send),

@@ -21,10 +21,12 @@ export default function InstructionPage() {
           <p className={styles["main-step__number"]}>3</p>
           <p className={styles["main-step__description"]}>Get a match!</p>
         </div>
+        <div className={styles["main-steps__button"]}>
+          <ButtonUI type="button" onClick={handleLogin}>
+            Get Started
+          </ButtonUI>
+        </div>
       </div>
-      <ButtonUI type="button" onClick={handleLogin}>
-        Get Started
-      </ButtonUI>
     </div>
   );
 }

@@ -1,10 +1,11 @@
 .auth {
-  display: none;
+  /* display: none; */
+  display: flex;
   align-items: center;
-  margin: 0 3rem;
+  margin: 0 0rem;
 }
 
-@media (min-width: 57rem) {
+@media (max-width: 30rem) {
   .auth {
     display: flex;
   }

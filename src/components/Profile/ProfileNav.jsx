@@ -23,7 +23,7 @@ const ProfileNav = () => {
               isActive ? classes.active : undefined
             }
           >
-            My Friends
+            Friends
           </NavLink>
         </li>
         <li>
@@ -33,7 +33,7 @@ const ProfileNav = () => {
               isActive ? classes.active : undefined
             }
           >
-            My Wishlist
+            Wishlist
           </NavLink>
         </li>
       </ul>

@@ -24,9 +24,7 @@ const NavLinksMain = () => {
   };
 
   const logoutHandler = () => {
-
     keycloak.logout({ redirectUri: "https://ss.cloudconsultingandsolutions.com/" });
-
   };
 
   return (

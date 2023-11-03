@@ -5,7 +5,7 @@
   align-items: center;
   height: 25rem;
   text-align: center;
-  margin-top: 5rem;
+  margin-top: 1rem;
 }
 
 .profile-tab > h1 {
@@ -47,35 +47,20 @@ hr {
   margin: 1rem 0;
 }
 
-@media (min-width: 57rem) {
-  .profile-tab {
-    margin-top: 1rem;
-  }
-
-  .profile-tab > h1 {
-    font-size: 3rem;
-  }
-
+@media (max-width: 20rem) {
   .profile-info {
-    margin-left: 0;
-    margin-right: 0;
+    width: 80%;
+  }
+
+  .profile-info__name {
+    font-size: 0.6rem;
+    margin: 0;
   }
 
   .profile-info__name > h3 {
-    font-size: 1.5rem;
+    font-size: 0.6rem;
   }
-
   .profile-info__name-item {
-    margin-right: 10rem;
-  }
-
-  .profile-info__button {
-    margin-top: 3rem;
-  }
-
-  hr {
-    color: aliceblue;
-    opacity: 0.4;
-    margin: 1rem 0;
+    margin-right: 0rem;
   }
 }

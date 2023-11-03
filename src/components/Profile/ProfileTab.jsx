@@ -1,5 +1,6 @@
 import keycloak from "../../util/keycloak";
 import classes from "./ProfileTab.module.css";
+import ButtonUI from "../UI/ButtonUI";
 
 const ProfileTab = () => {
   return (

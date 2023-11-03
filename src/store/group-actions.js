@@ -1,4 +1,5 @@
 import { getAuthToken } from "../util/auth";
+import baseFetchUrl from "../util/requests";
 import { groupsActions } from "./groups-slice";
 
 export const fetchGroupsData = () => {
@@ -6,15 +7,14 @@ export const fetchGroupsData = () => {
     const fetchData = async () => {
       const token = getAuthToken();
 
-      const response = await fetch(
-        "https://192.168.1.235:8443/secret-santa/user/groups",
-        {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+
+      const response = await fetch(baseFetchUrl + "secret-santa/user/groups", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+
       if (!response.ok) {
         throw new Error("Sending Cart Data Failed!");
       }
@@ -43,7 +43,7 @@ export const fetchGroupsMembers = (groupId) => {
       const token = getAuthToken();
       console.log(groupId);
       const response = await fetch(
-        "https://192.168.1.235:8443/secret-santa/group?id=" + groupId,
+        baseFetchUrl + "secret-santa/group?id=" + groupId,
         {
           method: "GET",
           headers: {
@@ -85,17 +85,16 @@ export const createNewGroup = (newItem) => {
     console.log(createItemBody);
 
     try {
-      const response = await fetch(
-        "https://192.168.1.235:8443/secret-santa/group",
-        {
-          method: "POST",
-          body: JSON.stringify(createItemBody[0]),
-          headers: {
-            "Content-Type": "application/JSON",
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+
+      const response = await fetch(baseFetchUrl + "secret-santa/group", {
+        method: "POST",
+        body: JSON.stringify(createItemBody[0]),
+        headers: {
+          "Content-Type": "application/JSON",
+          Authorization: "Bearer " + token,
+        },
+      });
+
 
       if (!response.ok) {
         console.error("Request failed with status:", response.status);
@@ -129,7 +128,8 @@ export const addNewMember = (addFriend) => {
 
     try {
       const response = await fetch(
-        "https://192.168.1.235:8443/secret-santa/group/add-members?groupId=" +
+        baseFetchUrl +
+          "secret-santa/group/add-members?groupId=" +
           addFriend.groupId,
         {
           method: "POST",

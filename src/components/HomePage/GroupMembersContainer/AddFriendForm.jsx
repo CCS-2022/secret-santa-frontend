@@ -5,7 +5,8 @@ import classes from "./AddFriendForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import keycloak from "../../../util/keycloak";
 import { getAuthToken } from "../../../util/auth";
-import { addNewMember } from "../../../store/group-actions";
+import { addNewMember, fetchGroupsMembers } from "../../../store/group-actions";
+import baseFetchUrl from "../../../util/requests";
 
 const AddFriendForm = (props) => {
   const dispatch = useDispatch();
@@ -23,8 +24,7 @@ const AddFriendForm = (props) => {
       const token = getAuthToken();
       // console.log(token);
       const response = await fetch(
-        "https://192.168.1.235:8443/secret-santa/user/search-users?name=" +
-          friendName,
+        baseFetchUrl + "secret-santa/user/search-users?name=" + friendName,
         {
           method: "GET",
           headers: {

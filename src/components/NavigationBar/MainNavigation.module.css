@@ -1,24 +1,26 @@
 .header {
   margin: auto;
   display: flex;
+  padding: 1rem 5rem;
 }
 
 .list {
   display: flex;
   justify-content: space-between;
-
+  width: 100%;
   align-items: center;
 }
 
 .nav {
   display: flex;
-  justify-content: space-around;
   width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 li {
   display: flex;
-  margin: 0 0rem;
+  margin: 0 3rem;
   text-decoration: none;
   color: aliceblue;
   font-size: 1.3rem;
@@ -41,44 +43,34 @@ li:hover {
 
 .logo {
   width: 4.5rem;
-  margin: 1rem 0rem;
+  margin: 1rem 0rem 1rem 0rem;
   padding: 0.5rem 0.5rem;
   background-color: rgb(237, 237, 237);
   border-radius: 100%;
 }
 
-@media (min-width: 57rem) {
+@media (max-width: 30rem) {
   .header {
     margin: auto;
-    padding: 1rem 5rem;
     display: flex;
+    padding: 1rem 0rem;
   }
-
-  .nav {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100vw;
-  }
-
   .list {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 90%;
     align-items: center;
   }
-
   li {
     display: flex;
-    margin: 0 3rem;
+    margin: 0 1rem;
     text-decoration: none;
     color: aliceblue;
-    font-size: 1.3rem;
+    font-size: 0.8rem;
   }
-
   .logo {
-    width: 4.5rem;
-    margin: 1rem 0rem 1rem 0rem;
-    padding: 0.5rem 0.5rem;
+    width: 3rem;
     background-color: rgb(237, 237, 237);
     border-radius: 100%;
   }

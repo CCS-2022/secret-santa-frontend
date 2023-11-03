@@ -24,7 +24,7 @@ const NavLinksMain = () => {
   };
 
   const logoutHandler = () => {
-    keycloak.logout({ redirectUri: "http://192.168.1.235:5173/" });
+    keycloak.logout({ redirectUri: "http://localhost:5173/" });
   };
 
   return (

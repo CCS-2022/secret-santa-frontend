@@ -1,6 +1,6 @@
 import Keycloak from "keycloak-js";
 const keycloak = new Keycloak({
-  url: "http://192.168.1.236:8080/",
+  url: "http://localhost:8181/",
   realm: "SecretSantaDev",
   clientId: "React-auth",
 });

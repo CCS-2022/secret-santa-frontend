@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { getAuthToken } from "../../util/auth";
 import { friendRequestSend } from "../../store/friendRequest-actions";
+import baseFetchUrl from "../../util/requests";
 
 const FriendsSearch = () => {
   // State Hooks
@@ -21,8 +22,7 @@ const FriendsSearch = () => {
       const token = getAuthToken();
       console.log(token);
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/user/search-users?name=" +
-          friendName,
+        baseFetchUrl + "secret-santa/user/search-users?name=" + friendName,
         {
           method: "GET",
           headers: {
@@ -49,6 +49,7 @@ const FriendsSearch = () => {
 
   // Send friend request
   function sendFriendRequest(userId) {
+    console.log(userId);
     friendRequestSend(userId);
     setFriendName("");
   }

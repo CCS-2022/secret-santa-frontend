@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import ButtonUI from "../../UI/ButtonUI";
 import { useState } from "react";
 import AddFriendForm from "./AddFriendForm";
+import { getAuthToken } from "../../../util/auth";
+import baseFetchUrl from "../../../util/requests";
 
 export default function GroupsMembersContainer({ onClick }) {
   // Using State
@@ -25,8 +27,7 @@ export default function GroupsMembersContainer({ onClick }) {
     async function shuffle() {
       const token = getAuthToken();
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/group/shuffle?groupId=" +
-          fetchedGroupId,
+        baseFetchUrl + "secret-santa/group/shuffle?groupId=" + fetchedGroupId,
         {
           method: "GET",
           headers: {

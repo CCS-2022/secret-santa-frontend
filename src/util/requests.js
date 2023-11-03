@@ -1,5 +1,8 @@
 import keycloak from "./keycloak";
 
+const baseFetchUrl = "http://localhost:8080/";
+export default baseFetchUrl;
+
 export async function getRequest() {
   const token = keycloak.token;
   // const token = tokenLoader();

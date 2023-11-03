@@ -5,32 +5,18 @@ import keycloak from "../../../util/keycloak";
 import Backdrop from "../../UI/Backdrop";
 import { useDispatch, useSelector } from "react-redux";
 import { groupsActions } from "../../../store/groups-slice";
+import GroupFriendLists from "./GroupFriendsLists";
+import { friendsActions } from "../../../store/friends-slice";
 
 const GroupForm = (props) => {
-  const friendsTwo = useSelector((state) => state.friends.friends);
-  // useState Hooks to obtain data to send a POST request
-  const [friends, setFriends] = useState([]);
-  const [membersIds, setMembersIds] = useState([]);
-  const [groupName, setGroupName] = useState("");
   const dispatch = useDispatch();
-  // Adding friends to add to group
-
-  function addFriends(friend) {
-    setFriends((prevFriends) => {
-      return [...prevFriends, friend.firstName];
-    });
-
-    setMembersIds((prevIds) => {
-      const updatedIds = [...prevIds, friend.userId];
-      return updatedIds;
-    });
-  }
+  const storeMemberIds = useSelector((state) => state.friends.memberIds);
+  const [groupName, setGroupName] = useState("");
 
   function groupNameHandler(event) {
     setGroupName(event.target.value);
   }
 
-  // ======================================= FORM SUBMITTAL ========================================
   function formSubmitHandler(event) {
     event.preventDefault();
 
@@ -38,12 +24,16 @@ const GroupForm = (props) => {
       groupsActions.createGroup({
         groupName: groupName,
         creatorId: keycloak.subject,
-        memberIds: membersIds,
+        memberIds: storeMemberIds,
       })
     );
     setGroupName("");
-    setMembersIds([]);
 
+    dispatch(
+      friendsActions.setMemberIds({
+        membersIds: [],
+      })
+    );
     props.onClose();
   }
 
@@ -61,17 +51,7 @@ const GroupForm = (props) => {
           onChange={groupNameHandler}
           required
         />
-        <label htmlFor="friends">Add friends to group</label>
-        <div className={classes["form-group__input"]}>
-          <p>{friends}</p>
-        </div>
-        <ul className={classes.friends}>
-          {friendsTwo.map((data) => (
-            <li onClick={() => addFriends(data)} key={data.key}>
-              {data.firstName} {data.lastName}
-            </li>
-          ))}
-        </ul>
+        <GroupFriendLists />
         <div className={classes.buttons}>
           <ButtonUI type="submit">Add</ButtonUI>
           <ButtonUI type="button" onClick={props.onClose}>

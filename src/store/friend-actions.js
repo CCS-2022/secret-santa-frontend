@@ -1,4 +1,5 @@
 import { getAuthToken } from "../util/auth";
+import baseFetchUrl from "../util/requests";
 import { friendsActions } from "./friends-slice";
 
 export const fetchFriendsData = () => {
@@ -6,15 +7,12 @@ export const fetchFriendsData = () => {
     const fetchData = async () => {
       const token = getAuthToken();
 
-      const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/user/friends",
-        {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+      const response = await fetch(baseFetchUrl + "secret-santa/user/friends", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
       if (!response.ok) {
         throw new Error("Sending Cart Data Failed!");
       }
@@ -53,7 +51,7 @@ export const removeFriend = (item) => {
 
     try {
       const response = await fetch(
-        "http://192.168.1.235:8080/secret-santa/user/remove-friend",
+        baseFetchUrl + "secret-santa/user/remove-friend",
         {
           method: "POST",
           body: JSON.stringify(createBody),

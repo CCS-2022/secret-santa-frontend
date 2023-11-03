@@ -1,8 +1,8 @@
 import classes from "./SideButton.module.css";
 
-const SideButton = () => {
+const SideButton = (props) => {
   return (
-    <button className={classes["toggle-button"]}>
+    <button onClick={props.onClick} className={classes["toggle-button"]}>
       <span className={classes["toggle-button__bar"]}></span>
       <span className={classes["toggle-button__bar"]}></span>
       <span className={classes["toggle-button__bar"]}></span>

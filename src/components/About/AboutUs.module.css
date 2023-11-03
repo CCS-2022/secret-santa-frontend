@@ -33,3 +33,32 @@
 .about-contact__pg {
   margin: 0.5rem 0;
 }
+
+@media (max-width: 30rem) {
+  .about {
+    height: 30rem;
+    overflow: auto;
+    margin: 0rem 2rem;
+    /* width: 100%; */
+  }
+  .about-contact {
+    text-align: center;
+    margin: 1rem 0;
+    width: 15rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-height: 60rem) {
+  .about {
+    height: 42rem;
+    margin: 0rem 0rem;
+  }
+}
+
+@media (max-height: 47rem) {
+  .about {
+    height: 27rem;
+    margin: 0rem 0rem;
+  }
+}

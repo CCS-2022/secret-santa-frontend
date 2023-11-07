@@ -12,7 +12,6 @@ const NavLinksMain = () => {
   const friendRequests = useSelector(
     (state) => state.friendRequests.friendRequests
   );
-  console.log(friendRequests.length);
   const [displayForm, setDisplayFrom] = useState(false);
 
   const showForm = () => {
@@ -24,7 +23,9 @@ const NavLinksMain = () => {
   };
 
   const logoutHandler = () => {
-    keycloak.logout({ redirectUri: "http://localhost:5173/" });
+    keycloak.logout({
+      redirectUri: "https://ss.cloudconsultingandsolutions.com/",
+    });
   };
 
   return (

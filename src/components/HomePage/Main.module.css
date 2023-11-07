@@ -258,3 +258,9 @@
     opacity: 0;
   }
 }
+
+@media (max-width: 20rem) {
+  .action-call {
+    margin-top: 0rem;
+  }
+}

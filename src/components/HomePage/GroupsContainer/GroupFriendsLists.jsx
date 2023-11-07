@@ -67,11 +67,11 @@ const GroupFriendLists = (props) => {
         ))}
       </div>
       <ul className={classes.friends}>
-        {friendList.map((data) => (
+        {friendList.map((data, index) => (
           <li
             className={classes["friends-li"]}
             onClick={() => addFriends(data)}
-            key={data.key}
+            key={index}
           >
             {data.firstName} {data.lastName}
           </li>

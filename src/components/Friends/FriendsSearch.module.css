@@ -64,3 +64,51 @@
 input::placeholder {
   color: aliceblue; /* Change the color to your desired color */
 }
+
+@media (max-width: 30rem) {
+  .friends-list {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3rem;
+    /* background-color: rgba(128, 128, 128, 0.3); */
+  }
+
+  .magnifying-glass {
+    height: 0.7rem;
+  }
+
+  .form-group__input {
+    height: 1.5rem;
+  }
+
+  input::placeholder {
+    color: aliceblue; /* Change the color to your desired color */
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 20rem) {
+  .friends-list {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3rem;
+    /* background-color: rgba(128, 128, 128, 0.3); */
+  }
+
+  .magnifying-glass {
+    height: 0.7rem;
+  }
+
+  .form-group__input {
+    height: 1.5rem;
+  }
+
+  input::placeholder {
+    color: aliceblue; /* Change the color to your desired color */
+    font-size: 0.8rem;
+  }
+}

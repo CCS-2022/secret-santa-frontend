@@ -3,7 +3,6 @@ import keycloak from "./keycloak";
 
 export function getAuthToken() {
   const token = keycloak.token;
-  console.log("token");
   if (!token) {
     console.log("token before REFRESHED");
     keycloak

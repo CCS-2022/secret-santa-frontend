@@ -19,7 +19,6 @@ export const fetchWishlistData = () => {
       return data;
     };
     try {
-      console.log("Success");
       const wishlistData = await fetchData();
       dispatch(
         wishlistActions.getWishlist({
@@ -27,7 +26,7 @@ export const fetchWishlistData = () => {
         })
       );
     } catch (error) {
-      console.log("Error");
+      // console.log("Error");
     }
   };
 };
@@ -36,11 +35,7 @@ export const fetchWishlistData = () => {
 export const createWishlistItem = (newItem) => {
   return async (dispatch) => {
     const token = getAuthToken();
-    console.log(token);
     const createItemBody = newItem.addItem || [];
-    console.log("Create ITEM body ========");
-    console.log(createItemBody);
-
     try {
       const response = await fetch(baseFetchUrl + "secret-santa/item", {
         method: "POST",
@@ -52,13 +47,10 @@ export const createWishlistItem = (newItem) => {
       });
 
       if (!response.ok) {
-        console.error("Request failed with status:", response.status);
         throw new Error("Failed to respond to friend request");
       }
-
       dispatch(wishlistActions.clearAddItem());
     } catch (error) {
-      console.error("An error occurred:", error);
       // Handle the error (e.g., show a notification to the user).
       throw error;
     }
@@ -69,10 +61,7 @@ export const createWishlistItem = (newItem) => {
 export const deleteItemFromWishlist = (item) => {
   return async (dispatch) => {
     const token = getAuthToken();
-    console.log(token);
     const deleteItemBody = item.deleteItem[0] || {};
-    console.log("DELETE ITEM body ========");
-    console.log(deleteItemBody);
 
     try {
       const response = await fetch(baseFetchUrl + "secret-santa/item/remove", {
@@ -85,13 +74,10 @@ export const deleteItemFromWishlist = (item) => {
       });
 
       if (!response.ok) {
-        console.error("Request failed with status:", response.status);
         throw new Error("Failed to respond to friend request");
       }
-
       dispatch(wishlistActions.clearDeleteItem());
     } catch (error) {
-      console.error("An error occurred:", error);
       // Handle the error (e.g., show a notification to the user).
       throw error;
     }
@@ -102,7 +88,6 @@ export const deleteItemFromWishlist = (item) => {
 export const updateItemFromWishlist = (item) => {
   return async (dispatch) => {
     const token = getAuthToken();
-    // console.log(token);
     const createBody = {
       itemId: item.itemId,
       name: item.name,
@@ -110,8 +95,6 @@ export const updateItemFromWishlist = (item) => {
       groupId: item.groupId,
       userId: item.userId,
     };
-    console.log("CREATE ITEM body ========");
-    console.log(createBody);
 
     try {
       const response = await fetch(baseFetchUrl + "secret-santa/item/update", {
@@ -124,14 +107,11 @@ export const updateItemFromWishlist = (item) => {
       });
 
       if (!response.ok) {
-        console.error("Request failed with status:", response.status);
         throw new Error("Failed to respond to friend request");
       }
       dispatch(wishlistActions.clearUpdateItem());
       dispatch(fetchWishlistData());
     } catch (error) {
-      console.error("An error occurred:", error);
-      // Handle the error (e.g., show a notification to the user).
       throw error;
     }
   };

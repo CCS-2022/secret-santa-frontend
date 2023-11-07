@@ -12,7 +12,6 @@ const WishlistItems = () => {
   const showForm = (item) => {
     setDisplayFrom(true);
     dispatch(wishlistActions.updateWishlist(item));
-    console.log(item);
   };
 
   const hideForm = () => {

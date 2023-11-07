@@ -82,12 +82,14 @@
   width: 10%;
   bottom: 0;
   left: 1.5rem;
+  /* z-index: -20; */
 }
 .tree-two {
   position: absolute;
   width: 8%;
   bottom: 0;
   left: 0;
+  /* z-index: -20; */
 }
 
 .tree-three {
@@ -95,6 +97,7 @@
   width: 10%;
   bottom: 0;
   right: 1.5rem;
+  /* z-index: -20; */
 }
 
 .tree-four {
@@ -102,6 +105,7 @@
   width: 8%;
   bottom: 0;
   right: 0;
+  /* z-index: -20; */
 }
 
 .tree-five {
@@ -109,6 +113,7 @@
   width: 6%;
   bottom: 0;
   left: 3.58rem;
+  /* z-index: -20; */
 }
 
 .tree-six {
@@ -116,6 +121,7 @@
   width: 6%;
   bottom: 0rem;
   right: 3.5rem;
+  /* z-index: -20; */
 }
 
 @media (min-width: 57rem) {

@@ -37,11 +37,6 @@ const AddFriendForm = (props) => {
         console.log("Fetching Events Failed.");
       } else {
         const data = await response.json();
-        console.log(data);
-        // Process and modify data as needed.
-        for (let i = 0; i < data.length; i++) {
-          data[i].key = i;
-        }
         setFriendList(data);
       }
     }
@@ -68,7 +63,6 @@ const AddFriendForm = (props) => {
     setFriendName("");
     setFriendId("");
     props.onClose();
-    // dispatch(fetchGroupsMembers(fetchedGroupId));
   }
 
   return (
@@ -95,8 +89,8 @@ const AddFriendForm = (props) => {
         </form>
         {friendName && !friendId ? (
           <ul className={classes["friends-list__ul"]}>
-            {friendList.map((event) => (
-              <li className={classes["friends-list__ul-li"]} key={event.key}>
+            {friendList.map((event, index) => (
+              <li className={classes["friends-list__ul-li"]} key={index}>
                 <p className={classes["friends-list__ul-name"]}>
                   {event.firstName} {event.lastName}
                 </p>

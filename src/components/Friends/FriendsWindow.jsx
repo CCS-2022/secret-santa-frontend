@@ -6,6 +6,7 @@ import { removeFriend } from "../../store/friend-actions";
 const FriendsWindow = () => {
   const dispatch = useDispatch();
   const fetchedFriends = useSelector((state) => state.friends.friends);
+
   function handleDeleteFriend(userId, firstName, lastName) {
     dispatch(
       removeFriend({
@@ -15,13 +16,14 @@ const FriendsWindow = () => {
       })
     );
   }
+
   return (
     <div className={classes["friends-page__container"]}>
       <h1>Friends</h1>
       <div className={classes["friends-page__friends"]}>
         <ul className={classes.friends}>
-          {fetchedFriends.map((event) => (
-            <li key={event.key} className={classes["friend-container"]}>
+          {fetchedFriends.map((event, index) => (
+            <li key={index} className={classes["friend-container"]}>
               <h6>
                 {event.firstName} {event.lastName}
               </h6>

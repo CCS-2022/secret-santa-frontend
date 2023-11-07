@@ -22,7 +22,6 @@ export const fetchGroupsData = () => {
       return data;
     };
     try {
-      console.log("Success");
       const groupsData = await fetchData();
       dispatch(
         groupsActions.getGroups({
@@ -30,7 +29,7 @@ export const fetchGroupsData = () => {
         })
       );
     } catch (error) {
-      console.log("Error");
+      // console.log("Error");
     }
   };
 };
@@ -41,7 +40,6 @@ export const fetchGroupsMembers = (groupId) => {
   return async (dispatch) => {
     const fetchData = async () => {
       const token = getAuthToken();
-      console.log(groupId);
       const response = await fetch(
         baseFetchUrl + "secret-santa/group?id=" + groupId,
         {
@@ -55,13 +53,9 @@ export const fetchGroupsMembers = (groupId) => {
         throw new Error("Sending Cart Data Failed!");
       }
       const data = await response.json();
-      for (let i = 0; i < data.length; i++) {
-        data[i].key = i;
-      }
       return data;
     };
     try {
-      console.log("Success");
       const groupMembers = await fetchData();
       dispatch(
         groupsActions.getMembers({
@@ -70,7 +64,7 @@ export const fetchGroupsMembers = (groupId) => {
       );
       dispatch(groupsActions.selectedGroupId(groupId));
     } catch (error) {
-      console.log("Error");
+      // console.log("Error");
     }
   };
 };
@@ -79,10 +73,7 @@ export const fetchGroupsMembers = (groupId) => {
 export const createNewGroup = (newItem) => {
   return async (dispatch) => {
     const token = getAuthToken();
-
     const createItemBody = newItem.addGroup || [];
-    console.log("Create ITEM body ========");
-    console.log(createItemBody);
 
     try {
 
@@ -97,14 +88,11 @@ export const createNewGroup = (newItem) => {
 
 
       if (!response.ok) {
-        console.error("Request failed with status:", response.status);
         throw new Error("Failed to respond to friend request");
       }
 
       dispatch(groupsActions.clearAddGroup());
     } catch (error) {
-      console.error("An error occurred:", error);
-      // Handle the error (e.g., show a notification to the user).
       throw error;
     }
   };
@@ -114,17 +102,12 @@ export const createNewGroup = (newItem) => {
 export const addNewMember = (addFriend) => {
   return async (dispatch) => {
     const token = getAuthToken();
-    console.log(addFriend);
+
     const createBody = {
       groupId: addFriend.groupId,
       creatorId: addFriend.creatorId,
       memberIds: [addFriend.memberIds],
     };
-    // groupId: fetchedGroupId,
-    // creatorId: keycloak.subject,
-    // memberIds: friendId,
-    console.log("Create ITEM body ========");
-    console.log(createBody);
 
     try {
       const response = await fetch(
@@ -142,14 +125,10 @@ export const addNewMember = (addFriend) => {
       );
 
       if (!response.ok) {
-        console.error("Request failed with status:", response.status);
         throw new Error("Failed to respond to friend request");
       }
-
       dispatch(fetchGroupsMembers(addFriend.groupId));
     } catch (error) {
-      console.error("An error occurred:", error);
-      // Handle the error (e.g., show a notification to the user).
       throw error;
     }
   };

@@ -9,7 +9,6 @@ export default function NotificationField(props) {
     (state) => state.friendRequests.friendRequests
   );
 
-  console.log(friendRequests);
   // Handle Request Response
   function requestResponse(friendshipId, answer) {
     dispatch(

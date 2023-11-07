@@ -41,8 +41,6 @@ export default function GroupsMembersContainer({ onClick }) {
         console.log("Fetching Events Failed.");
       } else {
         // const data = await response.json();
-
-        console.log("SHUFFLE SUCCESS");
       }
     }
     shuffle();
@@ -53,10 +51,10 @@ export default function GroupsMembersContainer({ onClick }) {
       <div className={classes.characteristics}>
         <h2>Group Members</h2>
         <ul className={classes["characteristics-friends"]}>
-          {members.map((friend) => (
+          {members.map((friend, index) => (
             <li
               className={classes["characteristics-friends__item"]}
-              key={friend.key}
+              key={index}
             >
               <p>
                 {friend.firstName} {friend.lastName}

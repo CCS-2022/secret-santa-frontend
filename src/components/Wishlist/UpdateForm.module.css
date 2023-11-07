@@ -1,7 +1,6 @@
 .form-group {
   display: flex;
   flex-direction: column;
-
   margin: auto;
   justify-content: center;
   align-items: center;
@@ -25,4 +24,11 @@
 
 .buttons {
   margin: 2rem 0;
+}
+
+@media (max-width: 30rem) {
+  .form-group__input {
+    height: 2rem;
+    width: 10rem;
+  }
 }

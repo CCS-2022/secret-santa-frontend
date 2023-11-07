@@ -20,22 +20,17 @@ export const fetchFriendRequestsData = () => {
         throw new Error("Sending Cart Data Failed!");
       }
       const data = await response.json();
-      //   for (let i = 0; i < data.length; i++) {
-      //     data[i].key = i;
-      //   }
       return data;
     };
     try {
-      console.log("Success");
       const friendRequestsData = await fetchData();
-
       dispatch(
         friendsRequestsActions.seeFriendRequests({
           friendRequests: friendRequestsData || [],
         })
       );
     } catch (error) {
-      console.log("Error");
+      console.log(error);
     }
   };
 };
@@ -48,7 +43,7 @@ export const friendRequestsResponse = (friendshipId, answer) => {
     const friendRequest = state.friendRequests.response[0];
 
     if (!friendRequest) {
-      console.error("Friend request not found for key:", friendshipId);
+      // console.error("Friend request not found for key:", friendshipId);
       return;
     }
 
@@ -64,7 +59,6 @@ export const friendRequestsResponse = (friendshipId, answer) => {
     const token = getAuthToken();
 
     if (!token) {
-      console.error("No valid token available.");
       throw new Error("No valid token available.");
     }
 
@@ -82,7 +76,6 @@ export const friendRequestsResponse = (friendshipId, answer) => {
       );
 
       if (!response.ok) {
-        console.error("Request failed with status:", response.status);
         throw new Error("Failed to respond to friend request");
       }
 
@@ -97,7 +90,6 @@ export const friendRequestsResponse = (friendshipId, answer) => {
       // Clear the response array
       dispatch(friendsRequestsActions.clearResponse());
     } catch (error) {
-      console.error("An error occurred:", error);
       // Handle the error (e.g., show a notification to the user).
       throw error;
     }
@@ -112,7 +104,6 @@ export const friendRequestSend = async (userId) => {
   console.log(userId);
   const send = { recipient: userId };
   if (!token) {
-    console.error("No valid token available.");
     // You may want to handle this case more explicitly (e.g., redirect to login).
     throw new Error("No valid token available.");
   }
@@ -131,13 +122,10 @@ export const friendRequestSend = async (userId) => {
     );
 
     if (!response.ok) {
-      console.error("Request failed with status:", response.status);
       // Handle the error (e.g., throw an error or return an error object).
       throw new Error("Failed to fetch data");
     }
   } catch (error) {
-    console.error("An error occurred:", error);
-
     throw error;
   }
 };

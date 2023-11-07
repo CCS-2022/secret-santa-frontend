@@ -20,7 +20,6 @@ const FriendsSearch = () => {
   useEffect(() => {
     async function friendsLookup() {
       const token = getAuthToken();
-      console.log(token);
       const response = await fetch(
         baseFetchUrl + "secret-santa/user/search-users?name=" + friendName,
         {
@@ -35,11 +34,6 @@ const FriendsSearch = () => {
         console.log("Fetching Events Failed.");
       } else {
         const data = await response.json();
-        console.log(data);
-        // Process and modify data as needed.
-        for (let i = 0; i < data.length; i++) {
-          data[i].key = i;
-        }
         setFriendList(data);
       }
     }
@@ -49,7 +43,6 @@ const FriendsSearch = () => {
 
   // Send friend request
   function sendFriendRequest(userId) {
-    console.log(userId);
     friendRequestSend(userId);
     setFriendName("");
   }
@@ -72,8 +65,8 @@ const FriendsSearch = () => {
       />
       {friendName ? (
         <ul className={classes["friends-list__ul"]}>
-          {friendList.map((event) => (
-            <li className={classes["friends-list__ul-li"]} key={event.key}>
+          {friendList.map((event, index) => (
+            <li className={classes["friends-list__ul-li"]} key={index}>
               <p className={classes["friends-list__ul-name"]}>
                 {event.firstName} {event.lastName}
               </p>

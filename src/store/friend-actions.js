@@ -14,16 +14,12 @@ export const fetchFriendsData = () => {
         },
       });
       if (!response.ok) {
-        throw new Error("Sending Cart Data Failed!");
+        throw new Error("Sending Data Failed!");
       }
       const data = await response.json();
-      for (let i = 0; i < data.length; i++) {
-        data[i].key = i;
-      }
       return data;
     };
     try {
-      console.log("Success");
       const friendsData = await fetchData();
       dispatch(
         friendsActions.replaceFriends({
@@ -31,7 +27,7 @@ export const fetchFriendsData = () => {
         })
       );
     } catch (error) {
-      console.log("Error");
+      // console.log("Error");
     }
   };
 };
@@ -40,14 +36,11 @@ export const fetchFriendsData = () => {
 export const removeFriend = (item) => {
   return async (dispatch) => {
     const token = getAuthToken();
-    // console.log(token);
     const createBody = {
       userId: item.userId,
       firstName: item.firstName,
       lastName: item.lastName,
     };
-    console.log("CREATE ITEM body ========");
-    console.log(createBody);
 
     try {
       const response = await fetch(
@@ -63,13 +56,11 @@ export const removeFriend = (item) => {
       );
 
       if (!response.ok) {
-        console.error("Request failed with status:", response.status);
         throw new Error("Failed to respond to friend request");
       }
 
       dispatch(fetchFriendsData());
     } catch (error) {
-      console.error("An error occurred:", error);
       // Handle the error (e.g., show a notification to the user).
       throw error;
     }

@@ -1,9 +1,23 @@
 .about {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  margin: 0rem 6rem;
+  margin: 0 6rem;
+  padding: 0 6rem;
+}
+
+/* .about {
+  height: 30rem;
+  overflow: auto;
+  margin: 0rem 2rem;
+  /* width: 50rem; */
+/* width: 100%; */
+.about-contact {
+  text-align: center;
+  margin: 2rem 0;
+  width: 15rem;
+  font-size: 1rem;
 }
 
 .about-text {
@@ -34,16 +48,37 @@
   margin: 0.5rem 0;
 }
 
+.about-contact__button {
+  margin-top: 3rem;
+}
+
 @media (max-width: 30rem) {
   .about {
     height: 30rem;
     overflow: auto;
     margin: 0rem 2rem;
+    padding: 0 2rem;
     /* width: 100%; */
   }
   .about-contact {
     text-align: center;
     margin: 1rem 0;
+    width: 15rem;
+    font-size: 1rem;
+  }
+  .about-contact__button {
+    margin-top: 0rem;
+  }
+}
+
+@media (max-width: 20rem) {
+  .about {
+    margin: 0rem 2rem;
+    padding: 0 0.5rem;
+  }
+  .about-contact {
+    text-align: center;
+    margin: 2rem 0;
     width: 15rem;
     font-size: 1rem;
   }

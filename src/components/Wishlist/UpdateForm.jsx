@@ -10,12 +10,10 @@ const UpdateForm = (props) => {
   // Stayed Here Dispatch Update to backend is the next step
   const dispatch = useDispatch();
   const currentItem = useSelector((state) => state.wishlist.itemToUpdate);
-  console.log(currentItem);
   const [itemName, setItemName] = useState(currentItem[0].name);
   const [url, setUrl] = useState(currentItem[0].itemUrl);
   function itemNameHandler(event) {
     setItemName(event.target.value);
-    console.log(event.target.value);
   }
 
   function urlHandler(event) {
@@ -34,7 +32,6 @@ const UpdateForm = (props) => {
         userId: currentItem[0].userId,
       })
     );
-    console.log("Form Submitted");
     setItemName("");
     setUrl("");
     props.onClose();

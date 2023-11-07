@@ -69,13 +69,11 @@ function App() {
   // ====================================== GET FRIENDS FOR ADDING TO GROUP ============================================
   // FETCH FRIENDS
   useEffect(() => {
-    console.log(1);
     dispatch(fetchFriendsData());
   }, [response, dispatch]);
 
   // CREATE GROUP
   useEffect(() => {
-    console.log(1.2);
     if (group.addGroupUpdate) {
       dispatch(createNewGroup(group));
     }
@@ -83,30 +81,25 @@ function App() {
 
   // FETCH GROUPS
   useEffect(() => {
-    console.log(2);
     dispatch(fetchGroupsData());
   }, [group.addGroup, dispatch]);
 
   // FETCH FRIEND REQUESTS
   useEffect(() => {
-    console.log(3);
     dispatch(fetchFriendRequestsData());
   }, [dispatch]);
 
   // RESPOND TO FRIEND REQUEST
   useEffect(() => {
-    console.log(4);
     dispatch(friendRequestsResponse(response));
   }, [response, dispatch]);
 
   // FETCH WISHLIST
   useEffect(() => {
-    console.log(5);
     dispatch(fetchWishlistData());
   }, [wishlist.addItem, dispatch]);
   // ADD ITEM
   useEffect(() => {
-    console.log(6);
     if (wishlist.addItemUpdate) {
       dispatch(createWishlistItem(wishlist));
     }
@@ -114,7 +107,6 @@ function App() {
 
   //Delete ITEM
   useEffect(() => {
-    console.log(7);
     if (wishlist.addItemUpdate) {
       dispatch(deleteItemFromWishlist(wishlist));
     }

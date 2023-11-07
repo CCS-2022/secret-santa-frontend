@@ -6,12 +6,14 @@ export const fetchWishlistData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
       const token = getAuthToken();
+
       const response = await fetch(baseFetchUrl + "secret-santa/item", {
         method: "GET",
         headers: {
           Authorization: "Bearer " + token,
         },
       });
+
       if (!response.ok) {
         throw new Error("Sending Cart Data Failed!");
       }
@@ -64,6 +66,7 @@ export const deleteItemFromWishlist = (item) => {
     const deleteItemBody = item.deleteItem[0] || {};
 
     try {
+
       const response = await fetch(baseFetchUrl + "secret-santa/item/remove", {
         method: "POST",
         body: JSON.stringify(deleteItemBody),
@@ -72,6 +75,7 @@ export const deleteItemFromWishlist = (item) => {
           Authorization: "Bearer " + token,
         },
       });
+
 
       if (!response.ok) {
         throw new Error("Failed to respond to friend request");
@@ -97,6 +101,7 @@ export const updateItemFromWishlist = (item) => {
     };
 
     try {
+
       const response = await fetch(baseFetchUrl + "secret-santa/item/update", {
         method: "POST",
         body: JSON.stringify(createBody),
@@ -105,6 +110,7 @@ export const updateItemFromWishlist = (item) => {
           Authorization: "Bearer " + token,
         },
       });
+
 
       if (!response.ok) {
         throw new Error("Failed to respond to friend request");

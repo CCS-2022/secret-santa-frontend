@@ -7,12 +7,14 @@ export const fetchGroupsData = () => {
     const fetchData = async () => {
       const token = getAuthToken();
 
+
       const response = await fetch(baseFetchUrl + "secret-santa/user/groups", {
         method: "GET",
         headers: {
           Authorization: "Bearer " + token,
         },
       });
+
       if (!response.ok) {
         throw new Error("Sending Cart Data Failed!");
       }
@@ -74,6 +76,7 @@ export const createNewGroup = (newItem) => {
     const createItemBody = newItem.addGroup || [];
 
     try {
+
       const response = await fetch(baseFetchUrl + "secret-santa/group", {
         method: "POST",
         body: JSON.stringify(createItemBody[0]),
@@ -82,6 +85,7 @@ export const createNewGroup = (newItem) => {
           Authorization: "Bearer " + token,
         },
       });
+
 
       if (!response.ok) {
         throw new Error("Failed to respond to friend request");

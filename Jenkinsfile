@@ -46,25 +46,26 @@ pipeline {
                            docker build -t ${DockerID}/${DevZone}:${ENVS}-${VERSION} .
                            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
                            docker push ${DockerID}/${DevZone}:${ENVS}-${VERSION}
-                           docker save -o ./ssfrontendCompressedImg${ENVS}-${VERSION}.tar ${DockerID}/${DevZone}:${ENVS}-${VERSION}
+                           
                         '''
+                        //docker save -o ./ssfrontendCompressedImg${ENVS}-${VERSION}.tar ${DockerID}/${DevZone}:${ENVS}-${VERSION}
                     }
                 }
             }
         }
 
-        stage('Upload to Artifactory') {
-            agent {
-                docker {
-                    image 'releases-docker.jfrog.io/jfrog/jfrog-cli-v2:2.2.0' 
-                    reuseNode true
-                }
-            }
-            steps {
-                echo "*** Uploading to Artifactory ***"
-                sh 'jfrog rt upload --url http://${Artifactory}/artifactory/ --access-token ${ARTIFACTORY_ACCESS_TOKEN} ./${DevZone}CompressedImg${ENVS}-${VERSION}.tar ss-frontend-${ENVS}/'
-            }
-        }
+        // stage('Upload to Artifactory') {
+        //     agent {
+        //         docker {
+        //             image 'releases-docker.jfrog.io/jfrog/jfrog-cli-v2:2.2.0' 
+        //             reuseNode true
+        //         }
+        //     }
+        //     steps {
+        //         echo "*** Uploading to Artifactory ***"
+        //         sh 'jfrog rt upload --url http://${Artifactory}/artifactory/ --access-token ${ARTIFACTORY_ACCESS_TOKEN} ./${DevZone}CompressedImg${ENVS}-${VERSION}.tar ss-frontend-${ENVS}/'
+        //     }
+        // }
 
         stage("Deploy To Container"){
             steps {

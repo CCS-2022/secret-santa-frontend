@@ -1,3 +1,3 @@
 
-const baseFetchUrl = "https://192.168.1.235:8443/";
+const baseFetchUrl = "https://ssb.cloudconsultingandsolutions.com/";
 export default baseFetchUrl;

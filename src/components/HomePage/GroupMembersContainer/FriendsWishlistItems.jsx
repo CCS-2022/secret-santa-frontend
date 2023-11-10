@@ -67,9 +67,9 @@ const FriendsWishlistItems = (props) => {
       <div className={classes["wishlist-items"]}>
         <h1 className={classes["wishlist-items__title"]}>WHISLIST ITEMS</h1>
         <ul className={classes["wishlist-items__ul"]}>
-          {wishlistItems.map((item, index) => (
+          {wishlistItems.map((item) => (
             <div>
-              <li className={classes["wishlist-items__li"]} key={index}>
+              <li className={classes["wishlist-items__li"]} key={item.itemId}>
                 <h3 className={classes["wishlist-items__li-item"]}>
                   {item.name}
                 </h3>

@@ -9,6 +9,7 @@ const wishlistSlice = createSlice({
     deleteItem: [],
     addItemUpdate: false,
     itemToUpdate: [],
+    userId: "",
   },
   reducers: {
     getWishlist(state, action) {
@@ -39,9 +40,6 @@ const wishlistSlice = createSlice({
     },
     deleteFromWishlist(state, action) {
       const itemToDelete = action.payload;
-      // const existingItem = state.wishlist.find(
-      //   (item) => item.itemId === itemToDelete
-      // );
       state.wishlist = state.wishlist.filter(
         (item) => item.itemId !== itemToDelete
       );
@@ -59,6 +57,10 @@ const wishlistSlice = createSlice({
     clearUpdateItem(state) {
       state.itemToUpdate = [];
       state.addItemUpdate = !state.addItemUpdate;
+    },
+    updateUserId(state, action) {
+      state.userId = action.payload.userId;
+      console.log(state.userId);
     },
   },
 });
